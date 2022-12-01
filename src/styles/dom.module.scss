@@ -1,0 +1,18 @@
+// absolute max-w-lg px-10 py-8 text-sm bg-zinc-800 rounded-lg shadow-xl md:text-base top-16 left-1/2 transform -translate-x-1/2
+.instructionsContainer {
+  position: absolute;
+  max-width: 50vw;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: small;
+  background: rgb(56, 56, 57);
+  border-radius: 5%;
+}
+
+@media (max-width: 1600px) {
+  .content {
+    width: 650px;
+    padding-right: 80px;
+    padding-left: 140px;
+  }
+}

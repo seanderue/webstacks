@@ -1,0 +1,46 @@
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background: rgb(40, 133, 246);
+    color: rgb(255, 255, 255);
+  }
+  html,
+  body,
+  #__next {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .js-experience {
+    float: right;
+    width: 50vw;
+  }
+
+  @media (max-width: 1600px) {
+    section.landing.is-not-interacting .experience {
+      transform: translateX(calc((650px + 420px) / 2));
+    }
+  }
+
+  section.landing.is-interacting .experience {
+    transform: translateX(0);
+    transition-duration: 1s;
+    transition-delay: 0.3s;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.25, 1);
+  }
+}

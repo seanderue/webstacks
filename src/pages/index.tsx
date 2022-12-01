@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import Instructions from '@/components/dom/Instructions'
+import IndependentCanvas from '@/components/canvas/IndependentCanvas'
 
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
@@ -10,11 +11,14 @@ const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
 // Dom components go here
 export default function Page(props) {
   return (
-    <Instructions>
-      This is a minimal starter for Nextjs + React-three-fiber and Threejs. Click on the{' '}
-      <span className='text-cyan-200'>atoms nucleus</span> to navigate to the{' '}
-      <span className='text-green-200'>/blob</span> page. OrbitControls are enabled by default.
-    </Instructions>
+    <>
+      <Instructions>
+        This is a minimal starter for Nextjs + React-three-fiber and Threejs. Click on the{' '}
+        <span className='text-cyan-200'>atoms nucleus</span> to navigate to the{' '}
+        <span className='text-green-200'>/blob</span> page. OrbitControls are enabled by default.
+      </Instructions>
+      <IndependentCanvas ref={props.ref} route={'/'} />
+    </>
   )
 }
 

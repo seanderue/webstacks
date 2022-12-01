@@ -9,7 +9,7 @@ import {
   RandomizedLight,
 } from '@react-three/drei'
 import { useState } from 'react'
-import scene from '../../styles/scene.module.scss'
+import styles from '../../styles/scene.module.scss'
 
 export default function Scene({ children, ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
@@ -18,7 +18,7 @@ export default function Scene({ children, ...props }) {
 
   return (
     <Canvas
-      // className={scene.expandedCanvas}
+      className={styles.expandedCanvas}
       shadows
       orthographic
       camera={{ position: [10, 20, 20], zoom: 80 }}
