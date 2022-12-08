@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import { ReactDOM } from 'react-dom/client'
 import Instructions from '@/components/dom/Instructions'
 import IndependentCanvas from '@/components/canvas/IndependentCanvas'
 
@@ -7,6 +8,8 @@ import IndependentCanvas from '@/components/canvas/IndependentCanvas'
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
 const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
+
+// const root = ReactDOM.createRoot(document.querySelector('#root-experience'))
 
 // Dom components go here
 export default function Page(props) {
@@ -17,6 +20,7 @@ export default function Page(props) {
         <span className='text-cyan-200'>atoms nucleus</span> to navigate to the{' '}
         <span className='text-green-200'>/blob</span> page. OrbitControls are enabled by default.
       </Instructions>
+      <div id='root-experience'></div>
       <IndependentCanvas ref={props.ref} route={'/'} />
     </>
   )

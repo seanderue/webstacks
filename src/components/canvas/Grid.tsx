@@ -3,9 +3,9 @@ import { Instance, Instances } from '@react-three/drei'
 export default function Grid({ number = 23, lineWidth = 0.026, height = 0.5 }) {
   return (
     // Renders a grid and crosses as instances
-    <Instances position={[0, -1.02, 0]}>
+    <Instances receiveShadow position={[0, -1.02, 0]}>
       <planeGeometry args={[lineWidth, height]} />
-      <meshBasicMaterial color='#999' />
+      <meshBasicMaterial color='rgb(40, 133, 246)' />
       {Array.from({ length: number }, (_, y) =>
         Array.from({ length: number }, (_, x) => (
           <group
@@ -16,7 +16,7 @@ export default function Grid({ number = 23, lineWidth = 0.026, height = 0.5 }) {
           </group>
         )),
       )}
-      <gridHelper args={[100, 100, '#bbb', '#bbb']} position={[0, -0.01, 0]} />
+      <gridHelper args={[100, 100, 'rgb(180, 203, 231)', 'rgb(180, 203, 231)']} position={[0, -0.01, 0]} />
     </Instances>
   )
 }

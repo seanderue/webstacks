@@ -4,9 +4,9 @@ import { mergeRefs } from 'react-merge-refs'
 const Layout = forwardRef(({ children, ...props }, ref) => {
   const localRef = useRef()
   return (
-    <div ref={mergeRefs([ref, localRef])} className='fullscreen'>
+    <main ref={mergeRefs([ref, localRef])} className='fullscreen'>
       {children}
-    </div>
+    </main>
   )
 })
 Layout.displayName = 'Layout'

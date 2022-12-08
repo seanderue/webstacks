@@ -1,0 +1,195 @@
+/*
+ *	WebFont Package Licensed to Sean DeRue
+ */
+/* Averta Standard Black */
+@font-face {
+  font-family: Averta Standard;
+  // src: url('../../public/fonts/eot/Averta-Standard-Black.eot'),
+  src: url('../../public/fonts/eot/Averta-Standard-Black.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/Averta-Standard-Black.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Black.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/Averta-Standard-Black.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Extra Bold  */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Extrabold.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Extrabold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Extra-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Extrabold.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Bold */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Bold.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Semibold  */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Semibold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Semibold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Semibold.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Regular */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Regular.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Light */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Light.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Light.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Light.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Light.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Thin */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Thin.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Thin.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Thin.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Thin.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Extra Thin */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Extrathin.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Extrathin.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Extra-Thin.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-Extrathin.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Averta Standard Black Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-BlackItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Black-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-BlackItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Extra Bold Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ExtraboldItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ExtraboldItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Extra-Bold-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-ExtraboldItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Bold Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Bold-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-BoldItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Semibold Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-Semibold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Semibold-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-SemiboldItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Regular Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-RegularItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-RegularItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Regular-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-RegularItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Light Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-LightItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-LightItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Light-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-LightItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Thin Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ThinItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Thin-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-ThinItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Averta Standard Extra Thin Italic */
+@font-face {
+  font-family: Averta Standard;
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ExtrathinItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../public/fonts/eot/hinted-AvertaStd-ExtrathinItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../public/fonts/woff2/Averta-Standard-Extra-Thin-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../../public/fonts/woff/hinted-AvertaStd-ExtrathinItalic.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
