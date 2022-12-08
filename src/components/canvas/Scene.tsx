@@ -23,22 +23,22 @@ export default function Scene({ children, ...props }) {
     <Canvas
       className={styles.expandedCanvas}
       shadows
-      orthographic
-      camera={{ position: [10, 5, 20], zoom: 80 }}
+      // orthographic
+      // camera={{ position: [10, 5, 20], zoom: 80 }}
+      camera={{ position: [0, 0, 18], fov: 35 }}
       gl={{ preserveDrawingBuffer: true }}
       onCreated={({ gl, scene }) => {
-        scene.background = new THREE.Color('#10172e')
+        scene.background = new THREE.Color('#122051')
         console.log(scene)
         console.log(gl)
       }}
       {...props}>
       <directionalLight castShadow intensity={0.75} />
       <ambientLight intensity={0.75} />
-      {/* <EnvironmentBox /> */}
 
-      <Backdrop receiveShadow scale={[20, 5, 5]} floor={1.5} position={[0, -0.5, -2]}>
-        {children}
-      </Backdrop>
+      <fog attach='fog' args={['#191920', 0, 90]} />
+
+      {children}
 
       <Preload all />
       <OrbitControls
@@ -49,20 +49,20 @@ export default function Scene({ children, ...props }) {
         maxZoom={140}
         enablePan={false}
         dampingFactor={0.05}
-        minPolarAngle={Math.PI / 3}
-        maxPolarAngle={Math.PI / 3}
+        // minPolarAngle={Math.PI / 3}
+        // maxPolarAngle={Math.PI / 3}
         // minAzimuthAngle={0}
         // maxAzimuthAngle={Math}
       />
       {/** The environment is just a bunch of shapes emitting light. This is needed for the clear-coat */}
       {/* <Environment preset='city' background resolution={32}> */}
       {/* <group rotation={[-Math.PI / 2, 0, 0]}>
-          <Lightformer intensity={10} rotation-x={Math.PI / 2} position={[0, 5, -9]} scale={[10, 10, 1]} />
-          <Lightformer intensity={4} rotation-y={Math.PI / 2} position={[-5, 1, -1]} scale={[10, 2, 1]} />
-          <Lightformer intensity={20} rotation-y={Math.PI / 2} position={[-5, -1, -1]} scale={[10, 2, 1]} />
-          <Lightformer intensity={10} rotation-y={-Math.PI / 2} position={[10, 1, 0]} scale={[20, 2, 1]} />
-          <Lightformer type='ring' intensity={10} rotation-y={Math.PI / 2} position={[-0.1, -1, -5]} scale={10} />
-        </group> */}
+        <Lightformer intensity={10} rotation-x={Math.PI / 2} position={[0, 5, -9]} scale={[10, 10, 1]} />
+        <Lightformer intensity={4} rotation-y={Math.PI / 2} position={[-5, 1, -1]} scale={[10, 2, 1]} />
+        <Lightformer intensity={20} rotation-y={Math.PI / 2} position={[-5, -1, -1]} scale={[10, 2, 1]} />
+        <Lightformer intensity={10} rotation-y={-Math.PI / 2} position={[10, 1, 0]} scale={[20, 2, 1]} />
+        <Lightformer type='ring' intensity={10} rotation-y={Math.PI / 2} position={[-0.1, -1, -5]} scale={10} />
+      </group> */}
       {/* </Environment> */}
 
       {/* <Lights /> */}

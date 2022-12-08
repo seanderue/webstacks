@@ -3,13 +3,13 @@ import { useFrame, useLoader, useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { RGBELoader } from 'three-stdlib'
-import Grid from './Grid'
 import { MeshRefractionMaterial } from './shaders/MeshRefractionMaterial'
 import { useControls } from 'leva'
 
 export default function Text({ children, font = '/Inter_Medium_Regular.json', ...props }) {
   const ref = useRef<THREE.Group>()
   const fbo = useFBO(1024)
+
   const texture = useLoader(
     RGBELoader,
     'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr',
@@ -49,55 +49,55 @@ export default function Text({ children, font = '/Inter_Medium_Regular.json', ..
     ref.current.visible = true
 
     // Floating animation
-    const t = state.clock.getElapsedTime()
-    ref.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20
-    ref.current.rotation.x = Math.cos(t / 4) / 8
-    ref.current.rotation.y = Math.sin(t / 4) / 8
-    ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
+    // const t = state.clock.getElapsedTime()
+    // ref.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20
+    // ref.current.rotation.x = Math.cos(t / 4) / 8
+    // ref.current.rotation.y = Math.sin(t / 4) / 8
+    // ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
   })
 
   return (
     <>
       <group ref={ref}>
-        {/* <Center scale={[0.8, 1, 1]} front right top {...props}> */}
-        <Text3D
-          castShadow
-          // Can test if receive is needed
-          receiveShadow
-          bevelEnabled
-          font={font}
-          scale={0.25}
-          // letterSpacing={config.letterSpacing}
-          letterSpacing={0}
-          height={0.1}
-          bevelSize={0.025}
-          bevelSegments={25}
-          curveSegments={8}
-          bevelThickness={0.01}>
-          {children}
-          {/** Pass the rendered buffer into the refraction shader */}
-          {/* <MeshRefractionMaterial uSceneTex={fbo.texture} {...config} /> */}
-          <MeshRefractionMaterial
-            uSceneTex={fbo.texture}
-            clearcoat={1}
-            clearcoatRoughness={0.34}
-            uRefractPower={0.23}
-            uTransparent={1.25}
-            uIntensity={1.3}
-            uNoise={0.01}
-            uSat={1.0}
-            uColor={'#19579d'}
-            gColor={'#7dd3ff'}
-          />
-          {/* <meshStandardMaterial color='blue' /> */}
-        </Text3D>
-        {/** Double up the text as a flat layer at the bottom for more interesting refraction */}
-        {/* <Center scale={[0.8, 1, 1]} front right top {...props}></Center> */}
-        <Text3D font={font} scale={0.25} letterSpacing={0} height={0.01} curveSegments={32}>
-          {children}
-          <meshBasicMaterial color={'#7dd3ff'} />
-        </Text3D>
-        {/* </Center> */}
+        <Center scale={[0.8, 1, 1]} front right top {...props}>
+          <Text3D
+            castShadow
+            // Can test if receive is needed
+            receiveShadow
+            bevelEnabled
+            font={font}
+            scale={5}
+            // letterSpacing={config.letterSpacing}
+            letterSpacing={0}
+            height={0.1}
+            bevelSize={0.01}
+            bevelSegments={25}
+            curveSegments={8}
+            bevelThickness={0.01}>
+            {children}
+            {/** Pass the rendered buffer into the refraction shader */}
+            {/* <MeshRefractionMaterial uSceneTex={fbo.texture} {...config} /> */}
+            {/* <MeshRefractionMaterial
+              uSceneTex={fbo.texture}
+              clearcoat={1}
+              clearcoatRoughness={0.34}
+              uRefractPower={0.23}
+              uTransparent={1.25}
+              uIntensity={1.3}
+              uNoise={0.01}
+              uSat={1.0}
+              uColor={'#19579d'}
+              gColor={'#7dd3ff'}
+            /> */}
+            <meshStandardMaterial color='blue' />
+          </Text3D>
+          {/** Double up the text as a flat layer at the bottom for more interesting refraction */}
+          <Center scale={[0.8, 1, 1]} front right top {...props}></Center>
+          <Text3D font={font} scale={5} letterSpacing={0} height={0.01} curveSegments={32}>
+            {children}
+            <meshBasicMaterial color={'#7dd3ff'} />
+          </Text3D>
+        </Center>
       </group>
     </>
   )

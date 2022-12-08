@@ -1,16 +1,16 @@
 import dynamic from 'next/dynamic'
 import Instructions from '@/components/dom/Instructions'
-import Grid from '@/components/canvas/Grid'
 import Text from '@/components/canvas/Text'
 import { Perf } from 'r3f-perf'
 import Overlay from '@/components/dom/Overlay'
 import { useState } from 'react'
-import PlaneReflector from '@/components/canvas/planeReflector'
+import PlaneReflector from '@/components/canvas/PlaneReflector'
 import { useControls } from 'leva'
+import { Backdrop, Environment, MeshReflectorMaterial } from '@react-three/drei'
+import Effects from '@/components/canvas/Effects'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
 const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
-const CryptoCoin = dynamic(() => import('@/components/canvas/CryptoCoin'), { ssr: false })
 
 export default function Page(props) {
   const [isInteracting, setIsInteracting] = useState(false)
@@ -72,16 +72,28 @@ export default function Page(props) {
 
 Page.canvas = (props) => (
   <>
-    <Perf position='top-left' />
-    <Blob route='/' position-y={3.75} />
-    <Text rotation={[0, 0, 0]} position={[-1, -2, 2.25]}>
-      [ ]
-    </Text>
-    {/* <CryptoCoin /> */}
-    {/* <group position={[-2, -2, 0]}>
+    <group position={[0, -3, 0]}>
+      <Perf position='top-left' />
+
+      {/* Staging */}
+      <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+        <orthographicCamera attach='shadow-camera' left={-20} right={20} top={20} bottom={-20} />
+      </directionalLight>
+
+      <Effects />
+      <Environment preset='dawn' />
+
+      {/* Meshes */}
+      <Blob route='/' position-y={3.75} />
+
+      {/* 3D Text */}
+      <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
+        [ ]
+      </Text>
+
+      {/* Reflection Plane */}
       <PlaneReflector />
-    </group> */}
-    {/* <Grid /> */}
+    </group>
   </>
 )
 
