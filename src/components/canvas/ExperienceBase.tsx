@@ -1,9 +1,11 @@
 import { Text } from '@react-three/drei'
+import dynamic from 'next/dynamic'
 import { createContext, useState } from 'react'
 import { LaptopProvider } from './context/LaptopContext'
 import { StageLevelProvider } from './context/StageLevelContext'
 import Laptop from './Laptop'
-import PlaneReflector from './PlaneReflector'
+const PlaneReflector = dynamic(() => import('@/components/canvas/PlaneReflector'), { ssr: false })
+// import PlaneReflector from './PlaneReflector'
 import PlanExperience from './PlanExperience'
 import ProcessButtons from './ProcessButtons'
 
