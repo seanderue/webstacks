@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { ReactDOM } from 'react-dom/client'
+// import { ReactDOM } from 'react-dom/client'
 import Instructions from '@/components/dom/Instructions'
 import IndependentCanvas from '@/components/canvas/IndependentCanvas'
 

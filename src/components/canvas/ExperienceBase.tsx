@@ -1,5 +1,4 @@
-import { Text } from '@react-three/drei'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { createContext, useState } from 'react'
 import { LaptopProvider } from './context/LaptopContext'
 import { StageLevelProvider } from './context/StageLevelContext'

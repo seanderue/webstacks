@@ -1,10 +1,8 @@
-import { Center, Float, Text3D, useFBO } from '@react-three/drei'
-import { useFrame, useLoader, useThree } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
+import { Center, Text3D, useFBO } from '@react-three/drei'
+import { useFrame, useLoader } from '@react-three/fiber'
+import { useRef } from 'react'
 import * as THREE from 'three'
 import { RGBELoader } from 'three-stdlib'
-import { MeshRefractionMaterial } from './shaders/MeshRefractionMaterial'
-import { useControls } from 'leva'
 
 export default function Text({ children, font = '/Inter_Medium_Regular.json', ...props }) {
   const ref = useRef<THREE.Group>()

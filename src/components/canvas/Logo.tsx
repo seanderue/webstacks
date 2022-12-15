@@ -1,8 +1,7 @@
-import * as THREE from 'three'
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useFrame } from '@react-three/fiber'
-import { useCursor, MeshReflectorMaterial } from '@react-three/drei'
+import { useCursor } from '@react-three/drei'
 
 export default function Logo({ route, ...props }) {
   const WEBSTACKS_BLUE = '#0a73dc'

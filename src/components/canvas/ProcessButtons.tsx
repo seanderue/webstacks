@@ -1,6 +1,6 @@
 import { Text, useCursor } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
-import { useControls } from 'leva'
+// import { useControls } from 'leva'
 import { useState } from 'react'
 import DesignIcon from './DesignIcon'
 import PlanIcon from './PlanIcon'

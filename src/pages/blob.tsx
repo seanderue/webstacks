@@ -1,32 +1,13 @@
 import dynamic from 'next/dynamic'
-import Instructions from '@/components/dom/Instructions'
-import Text from '@/components/canvas/Text'
 import { Perf } from 'r3f-perf'
-import Overlay from '@/components/dom/Overlay'
 import { useState } from 'react'
-import PlaneReflector from '@/components/canvas/PlaneReflector'
-import { useControls } from 'leva'
-import {
-  Html,
-  Backdrop,
-  Environment,
-  Float,
-  MeshReflectorMaterial,
-  PivotControls,
-  PresentationControls,
-} from '@react-three/drei'
+import { Environment, PresentationControls } from '@react-three/drei'
 import Effects from '@/components/canvas/Effects'
-import Laptop from '@/components/canvas/Laptop'
-import ProcessButtons from '@/components/canvas/ProcessButtons'
-import DesignIcon from '@/components/canvas/DesignIcon'
-import DecalBall from '@/components/canvas/DecalBall'
-import TechConstellation from '@/components/canvas/TechConstellation'
-import PlanExperience from '@/components/canvas/PlanExperience'
 import ExperienceBase from '@/components/canvas/ExperienceBase'
 import Image from 'next/image'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
-const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
+// const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
 
 export default function Page(props) {
   const [isInteracting, setIsInteracting] = useState(false)
@@ -119,6 +100,6 @@ Page.canvas = (props) => (
   </>
 )
 
-export async function getStaticProps() {
-  return { props: { title: 'Blob' } }
-}
+// export async function getStaticProps() {
+//   return { props: { title: 'Blob' } }
+// }

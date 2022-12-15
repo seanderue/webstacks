@@ -1,4 +1,3 @@
-import { customPointerEvents } from '@/helpers/customPointerEvents'
 import { Decal, Float, useTexture } from '@react-three/drei'
 import { Vector3, Color } from '@react-three/fiber'
 import { useState } from 'react'

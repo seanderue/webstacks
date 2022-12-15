@@ -1,10 +1,9 @@
-import { useControls } from 'leva'
+// import { useControls } from 'leva'
 import { Euler } from 'three'
 import DecalBall from './DecalBall'
 import { animated, useSpring } from '@react-spring/three'
 import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
-import { customPointerEvents } from '@/helpers/customPointerEvents'
 
 export default function Component(props) {
   //   const graphQlConfig = useControls('graphQl', {

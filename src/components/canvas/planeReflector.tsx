@@ -1,5 +1,5 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
-import { MeshProps } from '@react-three/fiber'
+// import { MeshProps } from '@react-three/fiber'
 
 export default function Component(props) {
   // const config = useControls({
