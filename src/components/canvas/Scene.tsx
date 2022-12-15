@@ -16,32 +16,37 @@ import styles from '../../styles/scene.module.scss'
 import Effects from './Effects'
 import Lights from './Lights'
 import EnvironmentBox from './EnvironmentBox'
+import { useControls } from 'leva'
 
 export default function Scene({ children, ...props }) {
+  const cameraRef = useRef()
   // Everything defined in here will persist between route changes, only children are swapped
   return (
     <Canvas
+      id='canvas'
       className={styles.expandedCanvas}
       shadows
+      dpr={[1, 2]}
       // orthographic
-      // camera={{ position: [10, 5, 20], zoom: 80 }}
-      camera={{ position: [0, 0, 18], fov: 35 }}
+      camera={{ position: [-0.45, -1.5, 8.5], rotation: [0, 0, 0], fov: 35 }}
+      // camera={{ position: [config.position[0], config.position[1], config.position[2]], fov: config.fov }}
       gl={{ preserveDrawingBuffer: true }}
       onCreated={({ gl, scene }) => {
-        scene.background = new THREE.Color('#122051')
+        scene.background = new THREE.Color('#10172e')
         console.log(scene)
         console.log(gl)
       }}
       {...props}>
-      <directionalLight castShadow intensity={0.75} />
-      <ambientLight intensity={0.75} />
+      <directionalLight shadow-bias={0} shadow-normalBias={0.1} castShadow intensity={0.75} />
+      {/* <ambientLight intensity={0.75} /> */}
 
-      <fog attach='fog' args={['#191920', 0, 90]} />
+      <fog attach='fog' args={['#10172e', 0, 60]} />
 
       {children}
 
       <Preload all />
-      <OrbitControls
+
+      {/* <OrbitControls
         autoRotate={false}
         autoRotateSpeed={-0.5}
         zoomSpeed={0.25}
@@ -53,7 +58,7 @@ export default function Scene({ children, ...props }) {
         // maxPolarAngle={Math.PI / 3}
         // minAzimuthAngle={0}
         // maxAzimuthAngle={Math}
-      />
+      /> */}
       {/** The environment is just a bunch of shapes emitting light. This is needed for the clear-coat */}
       {/* <Environment preset='city' background resolution={32}> */}
       {/* <group rotation={[-Math.PI / 2, 0, 0]}>

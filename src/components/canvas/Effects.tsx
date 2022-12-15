@@ -1,6 +1,7 @@
 import { EffectComposer, Bloom, Noise, Vignette, DepthOfField, SSR } from '@react-three/postprocessing'
 import { useControls } from 'leva'
 import { BlendFunction } from 'postprocessing'
+import { FXAAShader } from 'three-stdlib'
 
 export default function Effects() {
   // const ssrProps = useControls({
@@ -41,7 +42,6 @@ export default function Effects() {
       {/* <Vignette offset={0.5} darkness={0.5} eskil={true} blendFunction={BlendFunction.NORMAL} /> */}
       {/* <Noise opacity={0.06} premultiply blendFunction={BlendFunction.ADD} /> */}
       {/* <DepthOfField focalLength={0.025} focusDistance={0.025} bokehScale={6} /> */}
-
       {/* <SSR {...ssrProps} /> */}
     </EffectComposer>
   )

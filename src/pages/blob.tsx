@@ -6,8 +6,23 @@ import Overlay from '@/components/dom/Overlay'
 import { useState } from 'react'
 import PlaneReflector from '@/components/canvas/PlaneReflector'
 import { useControls } from 'leva'
-import { Backdrop, Environment, MeshReflectorMaterial } from '@react-three/drei'
+import {
+  Html,
+  Backdrop,
+  Environment,
+  Float,
+  MeshReflectorMaterial,
+  PivotControls,
+  PresentationControls,
+} from '@react-three/drei'
 import Effects from '@/components/canvas/Effects'
+import Laptop from '@/components/canvas/Laptop'
+import ProcessButtons from '@/components/canvas/ProcessButtons'
+import DesignIcon from '@/components/canvas/DesignIcon'
+import DecalBall from '@/components/canvas/DecalBall'
+import TechConstellation from '@/components/canvas/TechConstellation'
+import PlanExperience from '@/components/canvas/PlanExperience'
+import ExperienceBase from '@/components/canvas/ExperienceBase'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
 const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
@@ -44,7 +59,7 @@ export default function Page(props) {
             ( Built in 20 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO
             friendliness in mind )
           </p>
-          <p className='element description delay-4'>Separator</p>
+          <p className='element description delay-4'>Lorem Ipsum</p>
         </div>
         <div className={'experience'} onMouseDown={!isInteracting ? toggleIsInteracting : () => {}}>
           {props.children}
@@ -76,23 +91,29 @@ Page.canvas = (props) => (
       <Perf position='top-left' />
 
       {/* Staging */}
-      <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+      {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
         <orthographicCamera attach='shadow-camera' left={-20} right={20} top={20} bottom={-20} />
-      </directionalLight>
+      </directionalLight> */}
 
       <Effects />
-      <Environment preset='dawn' />
+      <Environment preset='city' />
 
       {/* Meshes */}
-      <Blob route='/' position-y={3.75} />
+      {/* <Blob route='/' position-y={3.75} /> */}
+      <PresentationControls
+        global
+        cursor={true}
+        rotation={[0.13, 0.1, 0]}
+        polar={[-0.2, 0.2]}
+        azimuth={[-1, 0.75]}
+        config={{ mass: 2, tension: 400 }}>
+        <ExperienceBase />
+      </PresentationControls>
 
       {/* 3D Text */}
-      <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
+      {/* <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
         [ ]
-      </Text>
-
-      {/* Reflection Plane */}
-      <PlaneReflector />
+      </Text> */}
     </group>
   </>
 )
