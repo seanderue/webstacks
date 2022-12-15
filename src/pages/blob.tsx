@@ -48,7 +48,7 @@ export default function Page(props) {
             {/* <br /> Hire a React Engineer */}
           </h1>
           <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1'>
-            <Image className='picture' src='img/author.jpeg' alt={'Sean DeRue'} />
+            <Image className='picture' src='/img/author.jpeg' alt={'Sean DeRue'} width={64} height={64} />
             <span className='label'>
               A Cover-Letter Experience <br /> by <span className='underline-container'>Sean DeRue</span>
             </span>

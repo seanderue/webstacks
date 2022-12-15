@@ -1,6 +1,5 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
-import { useControls } from 'leva'
 
 export default function PlaneReflector(props: MeshProps) {
   // const config = useControls({
