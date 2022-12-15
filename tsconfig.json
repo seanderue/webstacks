@@ -19,6 +19,12 @@
     "jsx": "preserve",
     "resolveJsonModule": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/canvas/shaders/MeshRefractionMaterial.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/canvas/shaders/MeshRefractionMaterial.js",
+    "src/components/canvas/Laptop.tsx"
+  ],
   "exclude": ["node_modules"]
 }
