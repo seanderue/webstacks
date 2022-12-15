@@ -66,6 +66,7 @@ export default function ProcessButtons(props: GroupProps) {
       <animated.group
         scale={0.4}
         position={spring.groupPosition}
+        // @ts-ignore
         rotation={spring.groupRotation}
         onPointerOver={() => {
           setSomethingHovered(true)

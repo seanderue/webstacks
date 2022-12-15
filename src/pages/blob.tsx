@@ -23,6 +23,7 @@ import DecalBall from '@/components/canvas/DecalBall'
 import TechConstellation from '@/components/canvas/TechConstellation'
 import PlanExperience from '@/components/canvas/PlanExperience'
 import ExperienceBase from '@/components/canvas/ExperienceBase'
+import Image from 'next/image'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
 const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
@@ -46,14 +47,14 @@ export default function Page(props) {
             Your Next React Engineer
             {/* <br /> Hire a React Engineer */}
           </h1>
-          <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1' target='_blank'>
-            <img className='picture' src='img/author.jpeg' />
+          <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1'>
+            <Image className='picture' src='img/author.jpeg' alt={'Sean DeRue'} />
             <span className='label'>
               A Cover-Letter Experience <br /> by <span className='underline-container'>Sean DeRue</span>
             </span>
           </a>
           <p className='element description delay-2'>
-            I want to be a part of Webstacks' next success stories. I made this site to prove it.
+            I want to be a part of Webstacks&apos; next success stories. I made this site to prove it.
           </p>
           <p className='element description delay-3'>
             ( Built in 20 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO

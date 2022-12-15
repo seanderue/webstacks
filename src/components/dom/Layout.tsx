@@ -1,6 +1,7 @@
 import { useRef, forwardRef } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 
+// @ts-ignore
 const Layout = forwardRef(({ children, ...props }, ref) => {
   const localRef = useRef()
   return (
