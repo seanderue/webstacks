@@ -2,9 +2,6 @@ import { Perf } from 'r3f-perf'
 import Blob from './Blob'
 import Scene from './Scene'
 import Text from '@/components/canvas/Text'
-import { useEffect, useRef } from 'react'
-import { useThree } from '@react-three/fiber'
-import * as THREE from 'three'
 
 export default function IndependentCanvas({ route, ...props }) {
   return (
