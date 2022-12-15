@@ -7,7 +7,7 @@ import Laptop from './Laptop'
 import PlanExperience from './PlanExperience'
 import ProcessButtons from './ProcessButtons'
 // import PlaneReflector from './PlaneReflector'
-const PlaneReflector = dynamic(() => import('@/components/canvas/PlaneReflector'), { ssr: false })
+// const PlaneReflector = dynamic(() => import('@/components/canvas/PlaneReflector'), { ssr: false })
 
 // Defining experience stage context to animate accordingly
 export const StageContext = createContext({
@@ -32,7 +32,7 @@ export default function Experience(props) {
           <ProcessButtons />
           <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
           {/* Reflection Plane */}
-          <PlaneReflector position={[0, 0, 0]} />
+          {/* <PlaneReflector position={[0, 0, 0]} /> */}
           <PlanExperience />
         </LaptopProvider>
       </StageLevelProvider>
