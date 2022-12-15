@@ -1,7 +1,7 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { MeshProps } from '@react-three/fiber'
 
-export default function PlaneReflector(props: MeshProps) {
+export default function Component(props) {
   // const config = useControls({
   //   blur: { value: [300, 100] },
   //   resolution: { value: 2048 },
