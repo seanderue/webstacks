@@ -1,6 +1,5 @@
 import { Environment } from '@react-three/drei'
 import { useControls } from 'leva'
-import * as THREE from 'three'
 
 function Striplight(props) {
   return (

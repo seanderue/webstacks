@@ -7,6 +7,7 @@ import PlanExperience from './PlanExperience'
 import ProcessButtons from './ProcessButtons'
 // import PlaneReflector from './PlaneReflector'
 import { MeshReflectorMaterial } from '@react-three/drei'
+import BuildExperience from './BuildExperience'
 // const PlaneReflector = dynamic(() => import('@/components/canvas/PlaneReflector'), { ssr: false })
 
 // Defining experience stage context to animate accordingly
@@ -29,8 +30,14 @@ export default function Experience(props) {
     <>
       <StageLevelProvider>
         <LaptopProvider>
+          {/* Experiences */}
+          <PlanExperience />
+          <BuildExperience />
+
+          {/* Laptop & Buttons*/}
           <ProcessButtons />
           <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
+
           {/* Reflection Plane */}
           {/* <PlaneReflector position={[0, 0, 0]} />*/}
           <mesh scale={50} rotation={[-Math.PI / 2, 0, 0]} {...props}>
@@ -50,7 +57,6 @@ export default function Experience(props) {
               mirror={0}
             />
           </mesh>
-          <PlanExperience />
         </LaptopProvider>
       </StageLevelProvider>
     </>
