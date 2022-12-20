@@ -160,8 +160,8 @@ export default function Page(props) {
               <h3 className='section-title element delay-1'>Planning</h3>
               <div className='description element delay-2'>
                 <p>
-                  Something something T-shaped skillset that means I won't need a translator for marketing-speak. I know
-                  expertise shines in the details. I know what is important to the end user.
+                  Something something T-shaped skillset that means I won&amp;t need a translator for marketing-speak. I
+                  know expertise shines in the details. I know what is important to the end user.
                 </p>
               </div>
             </div>
