@@ -1,7 +1,7 @@
 import { Text } from '@react-three/drei'
 import { useControls } from 'leva'
 import RoundedSquareExtruded from './RoundedSquareExtruded'
-import { useSpring, animated, config } from '@react-spring/three'
+import { useSpring, animated, config, SpringValue } from '@react-spring/three'
 
 export default function RoundedSquareGrid(props) {
   // export default function RoundedSquareGrid({ position, rotation }) {
@@ -20,35 +20,44 @@ export default function RoundedSquareGrid(props) {
     })
 
   // Set the dimensions & color of squares
-  const squareParams = {
-    width: width,
-    height: height,
-    radius: radius,
+  const bigSquareParams = {
+    width: 1.5,
+    height: 1.5,
+    radius: 0.01,
     scale: 1,
     color: 'gray',
     // extrusion: 2,
   }
 
-  const extrudeSettings = {
-    steps: steps, // ui: steps
-    depth: depth, // ui: depth
-    // bevelEnabled: false, // ui: bevelEnabled
+  const smallSquareParams = {
+    width: 1.5 / 6,
+    height: 1.5 / 6,
+    radius: 0.01,
+    scale: 1,
+    color: '#61ebeb',
+  }
+
+  const bigExtrudeSettings = {
+    steps: 1, // ui: steps
+    depth: 0.11, // ui: depth
     bevelEnabled: true, // ui: bevelEnabled
-    bevelThickness: bevelThickness, // ui: bevelThickness
-    bevelSize: bevelSize, // ui: bevelSize
-    bevelSegments: bevelSegments, // ui: bevelSegments
+    bevelThickness: 0.02, // ui: bevelThickness
+    bevelSize: 0.09, // ui: bevelSize
+    bevelSegments: 2, // ui: bevelSegments
+  }
+  const smallExtrudeSettings = {
+    steps: 1, // ui: steps
+    depth: 0.055, // ui: depth
+    bevelEnabled: true, // ui: bevelEnabled
+    bevelThickness: 0.02, // ui: bevelThickness
+    bevelSize: 0.09, // ui: bevelSize
+    bevelSegments: 2, // ui: bevelSegments
   }
 
   const gap = 0.1
   const verticalGap = 0.5
 
   const AnimatedText = animated(Text)
-  const isVisible = true
-
-  interface textSprings {
-    scale: number
-    yPosition: number
-  }
 
   //   const spring = useSpring<textSprings>(
   //     {
@@ -81,24 +90,31 @@ export default function RoundedSquareGrid(props) {
         rotation={[Math.PI / 2, Math.PI / 2, 0]}>
         Backlog
       </AnimatedText>
+      <RoundedSquareExtruded
+        extrudeSettings={smallExtrudeSettings}
+        {...smallSquareParams}
+        position={[0, 0, verticalGap * 0.5]}
+        rotation={[0, 0, 0]}
+      />
+
       {/* Row 1 w/ 1 col  */}
       <RoundedSquareExtruded
-        extrudeSettings={extrudeSettings}
-        {...squareParams}
+        extrudeSettings={bigExtrudeSettings}
+        {...bigSquareParams}
         position={[0, 0, verticalGap * 0]}
         rotation={[0, 0, 0]}
       />
       {/* Row 2 w/ 1 col  */}
       <RoundedSquareExtruded
-        extrudeSettings={extrudeSettings}
-        {...squareParams}
+        extrudeSettings={bigExtrudeSettings}
+        {...bigSquareParams}
         position={[0, 0, verticalGap * 1]}
         rotation={[0, 0, 0]}
       />
       {/* row 3 w/ 1 col */}
       <RoundedSquareExtruded
-        extrudeSettings={extrudeSettings}
-        {...squareParams}
+        extrudeSettings={bigExtrudeSettings}
+        {...bigSquareParams}
         position={[0, 0, verticalGap * 2]}
         rotation={[0, 0, 0]}
       />

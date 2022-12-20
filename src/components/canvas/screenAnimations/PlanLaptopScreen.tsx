@@ -3,7 +3,7 @@ import { Shape } from 'three'
 import EmptyLaptopScreen from './EmptyLaptopScreen'
 // import RoundedSquare from './RoundedSquare'
 import RoundedSquareGrid from './RoundedSquareGrid'
-import VennDiagram from './VennDiagram'
+import VennDiagram from '../VennDiagram'
 
 export default function PlanLaptopScreen() {
   // const config = useControls({

@@ -28,37 +28,33 @@ export default function Experience(props) {
 
   return (
     <>
-      <StageLevelProvider>
-        <LaptopProvider>
-          {/* Experiences */}
-          <PlanExperience />
-          <BuildExperience />
+      {/* Experiences */}
+      <PlanExperience />
+      <BuildExperience />
 
-          {/* Laptop & Buttons*/}
-          <ProcessButtons />
-          <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
+      {/* Laptop & Buttons*/}
+      <ProcessButtons />
+      <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
 
-          {/* Reflection Plane */}
-          {/* <PlaneReflector position={[0, 0, 0]} />*/}
-          <mesh scale={50} rotation={[-Math.PI / 2, 0, 0]} {...props}>
-            <planeGeometry />
-            {/* <MeshReflectorMaterial {...config} /> */}
-            <MeshReflectorMaterial
-              blur={[300, 100]}
-              resolution={2048}
-              mixBlur={1}
-              mixStrength={3}
-              roughness={1}
-              depthScale={1.2}
-              minDepthThreshold={0.09}
-              maxDepthThreshold={1.4}
-              color='#181c2a'
-              metalness={1}
-              mirror={0}
-            />
-          </mesh>
-        </LaptopProvider>
-      </StageLevelProvider>
+      {/* Reflection Plane */}
+      {/* <PlaneReflector position={[0, 0, 0]} />*/}
+      <mesh scale={50} rotation={[-Math.PI / 2, 0, 0]} {...props}>
+        <planeGeometry />
+        {/* <MeshReflectorMaterial {...config} /> */}
+        <MeshReflectorMaterial
+          blur={[300, 100]}
+          resolution={2048}
+          mixBlur={1}
+          mixStrength={3}
+          roughness={1}
+          depthScale={1.2}
+          minDepthThreshold={0.09}
+          maxDepthThreshold={1.4}
+          color='#181c2a'
+          metalness={1}
+          mirror={0}
+        />
+      </mesh>
     </>
   )
 }

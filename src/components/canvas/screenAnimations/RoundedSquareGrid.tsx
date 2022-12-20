@@ -14,7 +14,7 @@ export default function RoundedSquareGrid({ position, rotation }) {
     height: 0.7,
     radius: 0.03,
     scale: 1,
-    color: 'gray',
+    color: '#b1bfde',
   }
   const gap = 0.1
 

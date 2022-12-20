@@ -3,8 +3,8 @@ import { Float } from '@react-three/drei'
 import { useControls } from 'leva'
 import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
-import Backlog from './screenAnimations/Backlog'
-import VennDiagram from './screenAnimations/VennDiagram'
+import Backlog from './Backlog'
+import VennDiagram from './VennDiagram'
 import TechConstellation from './TechConstellation'
 
 export default function Experience(props) {

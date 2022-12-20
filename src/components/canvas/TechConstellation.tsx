@@ -122,7 +122,6 @@ export default function Component(props) {
 
   const displayBalls = !isClosed && stageLevel === 3
   console.log(stageLevel)
-  console.log(displayBalls)
 
   const spring = useSpring<springTypes>({
     graphQLPosition: displayBalls ? [-4.25, 0.55, -2] : [0, 0, 0],
