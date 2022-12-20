@@ -8,6 +8,8 @@ import ProcessButtons from './ProcessButtons'
 // import PlaneReflector from './PlaneReflector'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import BuildExperience from './BuildExperience'
+import DesignExperience from './DesignExperience'
+import OptimizeExperience from './OptimizeExperience'
 // const PlaneReflector = dynamic(() => import('@/components/canvas/PlaneReflector'), { ssr: false })
 
 // Defining experience stage context to animate accordingly
@@ -30,7 +32,9 @@ export default function Experience(props) {
     <>
       {/* Experiences */}
       <PlanExperience />
+      <DesignExperience />
       <BuildExperience />
+      <OptimizeExperience />
 
       {/* Laptop & Buttons*/}
       <ProcessButtons />

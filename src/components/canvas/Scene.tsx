@@ -15,7 +15,6 @@ import { useEffect, useRef, useState } from 'react'
 import styles from '../../styles/scene.module.scss'
 import Effects from './Effects'
 import Lights from './Lights'
-import EnvironmentBox from './EnvironmentBox'
 import { useControls } from 'leva'
 
 export default function Scene({ children, ...props }) {

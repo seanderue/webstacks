@@ -35,7 +35,7 @@ export default function Page(props) {
 Page.canvas = (props) => (
   <>
     <group position={[0, -3, 0]}>
-      <Perf position='top-left' />
+      {/* <Perf position='top-left' /> */}
 
       {/* Staging */}
       {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>

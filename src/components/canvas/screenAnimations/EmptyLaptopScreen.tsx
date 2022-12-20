@@ -1,6 +1,6 @@
 import { Shape } from 'three'
 
-export default function EmptyLaptopScreen() {
+export default function EmptyLaptopScreen({ color }) {
   // Set the dimensions of the shape
   const width = 5
   const height = 3.28
@@ -25,7 +25,7 @@ export default function EmptyLaptopScreen() {
   return (
     <mesh scale={1} position={[-2.5, 0, -0.2]} rotation={[-Math.PI / 2, 0, 0]}>
       <shapeGeometry attach='geometry' args={[shape]} />
-      <meshBasicMaterial attach='material' color='white' />
+      <meshBasicMaterial attach='material' color={color} />
     </mesh>
   )
 }

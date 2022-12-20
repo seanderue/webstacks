@@ -5,19 +5,19 @@ import { useSpring, animated, config, SpringValue } from '@react-spring/three'
 
 export default function RoundedSquareGrid(props) {
   // export default function RoundedSquareGrid({ position, rotation }) {
-  const { position, rotation, width, height, radius, steps, depth, bevelThickness, bevelSize, bevelSegments } =
-    useControls({
-      position: { value: [-3.61, 0.56, 0.84], step: 0.01 },
-      rotation: { value: [-Math.PI / 2, 0, 0], step: 0.01 },
-      steps: { value: 1, step: 0.01 },
-      depth: { value: 0.11, step: 0.01 },
-      bevelThickness: { value: 0.02, step: 0.01 },
-      bevelSize: { value: 0.09, step: 0.01 },
-      bevelSegments: { value: 2, step: 0.01 },
-      width: { value: 1.5, step: 0.01 },
-      height: { value: 1.5, step: 0.01 },
-      radius: { value: 0.01, step: 0.001 },
-    })
+  // const { position, rotation, width, height, radius, steps, depth, bevelThickness, bevelSize, bevelSegments } =
+  //   useControls({
+  //     position: { value: [-3.61, 0.56, 0.84], step: 0.01 },
+  //     rotation: { value: [-Math.PI / 2, 0, 0], step: 0.01 },
+  //     steps: { value: 1, step: 0.01 },
+  //     depth: { value: 0.11, step: 0.01 },
+  //     bevelThickness: { value: 0.02, step: 0.01 },
+  //     bevelSize: { value: 0.09, step: 0.01 },
+  //     bevelSegments: { value: 2, step: 0.01 },
+  //     width: { value: 1.5, step: 0.01 },
+  //     height: { value: 1.5, step: 0.01 },
+  //     radius: { value: 0.01, step: 0.001 },
+  //   })
 
   // Set the dimensions & color of squares
   const bigSquareParams = {
@@ -74,7 +74,7 @@ export default function RoundedSquareGrid(props) {
   //   },[isVisible])
 
   return (
-    <group position={[-3.95, 0.56, 0.84]} rotation={[-Math.PI / 2, 0, 0]}>
+    <group scale={0.75} position={[-3.25, 0.56, 0.55]} rotation={[-Math.PI / 2, 0, 0]}>
       <AnimatedText
         scale={1}
         strokeOpacity={0}
