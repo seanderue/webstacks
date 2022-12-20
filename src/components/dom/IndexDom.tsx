@@ -7,23 +7,21 @@ import { Effects, Environment, PresentationControls } from '@react-three/drei'
 import ExperienceBase from '../canvas/ExperienceBase'
 
 export default function Page(props) {
+  // Triggers when user touches canvas (used for css animations)
   const [isInteracting, setIsInteracting] = useState(false)
+  // Wrapper state for isInteracting with stateful delays (used for css animations)
+  const [isActive, setIsActive] = useState(false)
+
   const toggleIsInteracting = () => {
     setIsInteracting((prev) => !prev)
+    if (isActive) {
+      setIsActive((prev) => !prev)
+    } else {
+      setTimeout(() => setIsActive((prev) => !prev), 1000)
+    }
   }
   const [stageLevel, setStageLevel] = useStageLevelContext()
   const [isClosed, setIsClosed] = useLaptopContext()
-
-  const [planActivity, setPlanActivity] = useState('is-after')
-  const [designActivity, setDesignActivity] = useState('is-after')
-
-  //Your tired ass tried something stupd that didn't work. Let's try this https://stackoverflow.com/questions/35224113/react-change-class-name-on-state-change
-  useEffect(() => {
-    setPlanActivity(getActivity(1))
-    setDesignActivity(getActivity(2))
-    console.log('new stage level')
-    console.log(stageLevel)
-  }, [isInteracting, stageLevel])
 
   const getActivity = (level: number) => {
     // check to see if stage level is before plan
@@ -61,9 +59,15 @@ export default function Page(props) {
     }
   }
 
+  const openLaptopLabelClass = `level ${getActivity(0)}`
+  const planLabelClass = `level ${getActivity(1)}`
+  const designLabelClass = `level ${getActivity(2)}`
+  const buildLabelClass = `level ${getActivity(3)}`
+  const optimizeLabelClass = `level ${getActivity(4)}`
+
   return (
     <>
-      <section className={`landing ${isInteracting ? 'is-interacting' : 'is-not-interacting'}`}>
+      <section className={isInteracting ? 'landing is-interacting' : 'landing is-not-interacting'}>
         {/* <Overlay /> */}
         <div className='mask is-top' />
         <div onClick={toggleIsInteracting} className='mask is-right' />
@@ -94,7 +98,9 @@ export default function Page(props) {
           <div className='navigation'>
             <button
               onClick={() => handlePreviousClick()}
-              className={`js-previous sibling is-previous ${stageLevel > 0 && 'is-active'}`}
+              className={
+                stageLevel > 0 ? 'js-previous sibling is-previous is-active' : 'js-previous sibling is-previous'
+              }
               aria-label='Previous'>
               <div className='icon'>
                 <svg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -110,24 +116,24 @@ export default function Page(props) {
             <div className='label'>
               <div className='inner'>
                 <div className={'value'}>
-                  <span className={`js-level level ${getActivity(0)}`}> Open Laptop </span>
-                  <span className={`js-levels level ${getActivity(1)} `}> Plan </span>
-                  <span className={`js-levels level ${getActivity(2)} `}> Design </span>
-                  <span className={`js-levels level ${getActivity(3)} `}> Build </span>
-                  <span className={`js-levels level ${getActivity(4)} `}> Optimize </span>
+                  <span className={openLaptopLabelClass}> Open Laptop </span>
+                  <span className={planLabelClass}> Plan </span>
+                  <span className={designLabelClass}> Design </span>
+                  <span className={buildLabelClass}> Build </span>
+                  <span className={optimizeLabelClass}> Optimize </span>
                 </div>
               </div>
             </div>
             <button
               onClick={() => handleNextClick()}
-              className={`js-next sibling is-next ${stageLevel < 4 && 'is-active'}`}
+              className={stageLevel < 4 ? 'js-next sibling is-next is-active' : 'js-next sibling is-next'}
               aria-label='next'>
               <div className='icon'>
                 <svg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='https://www.w3.org/2000/svg'>
                   <path
                     opacity='0.5'
-                    fill-rule='evenodd'
-                    clip-rule='evenodd'
+                    fillRule='evenodd'
+                    clipRule='evenodd'
                     d='M5.5 7C5.10218 7 4.72064 6.84197 4.43934 6.56066L0.439339 2.56066C-0.146447 1.97487 -0.146447 1.02513 0.439339 0.43934C1.02513 -0.146446 1.97487 -0.146446 2.56066 0.43934L5.5 3.37868L8.43934 0.43934C9.02513 -0.146447 9.97487 -0.146447 10.5607 0.439339C11.1464 1.02513 11.1464 1.97487 10.5607 2.56066L6.56066 6.56066C6.27936 6.84197 5.89782 7 5.5 7Z'
                     fill='white'></path>
                 </svg>
@@ -148,21 +154,63 @@ export default function Page(props) {
         </button>
         <div className='chapters'>
           <div className='container'>
-            {/* <div className={`chapter chapter-01 ${stageLevel === 1 && 'is-active'}`}> */}
-            <div className={`chapter chapter-01 is-active`}>
+            <div className={stageLevel === 1 && isActive ? 'chapter chapter-01 is-active' : 'chapter chapter-01'}>
+              {/* <div className={`chapter chapter-01 is-active`}> */}
+              <div className='grid'>
+                <div className='shadow' />
+              </div>
+              {/* <div className='illustration'>
+                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+              </div> */}
+              <small className='number element ch-delay-0'>01</small>
+              <h3 className='section-title element ch-delay-1'>Planning</h3>
+              <div className='description element ch-delay-2'>
+                <p>
+                  Something something T-shaped skillset that means I won&amp;t need a translator for marketing-speak. I
+                  know expertise shines in the details. I know what is important to the end user.
+                </p>
+              </div>
+            </div>
+            <div className={stageLevel === 2 && isActive ? 'chapter chapter-02 is-active' : 'chapter chapter-02'}>
+              {/* <div className={`chapter chapter-01 is-active`}> */}
               <div className='grid'>
                 <div className='shadow' />
               </div>
               <div className='illustration'>
                 <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
               </div>
-              <small className='number element delay-0'>01</small>
-              <h3 className='section-title element delay-1'>Planning</h3>
-              <div className='description element delay-2'>
-                <p>
-                  Something something T-shaped skillset that means I won&amp;t need a translator for marketing-speak. I
-                  know expertise shines in the details. I know what is important to the end user.
-                </p>
+              <small className='number element ch-delay-0'>02</small>
+              <h3 className='section-title element ch-delay-1'>Designing</h3>
+              <div className='description element ch-delay-2'>
+                <p>I can design</p>
+              </div>
+            </div>
+            <div className={stageLevel === 3 && isActive ? 'chapter chapter-03 is-active' : 'chapter chapter-03'}>
+              {/* <div className={`chapter chapter-01 is-active`}> */}
+              <div className='grid'>
+                <div className='shadow' />
+              </div>
+              <div className='illustration'>
+                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+              </div>
+              <small className='number element ch-delay-0'>03</small>
+              <h3 className='section-title element ch-delay-1'>Building</h3>
+              <div className='description element ch-delay-2'>
+                <p>Build build build build</p>
+              </div>
+            </div>
+            <div className={stageLevel === 4 && isActive ? 'chapter chapter-04 is-active' : 'chapter chapter-04'}>
+              {/* <div className={`chapter chapter-01 is-active`}> */}
+              <div className='grid'>
+                <div className='shadow' />
+              </div>
+              <div className='illustration'>
+                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+              </div>
+              <small className='number element ch-delay-0'>04</small>
+              <h3 className='section-title element ch-delay-1'>Optimizing</h3>
+              <div className='description element ch-delay-2'>
+                <p>Optimize Optimize Optimize</p>
               </div>
             </div>
           </div>

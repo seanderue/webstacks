@@ -1,23 +1,7 @@
-// // Responsive Styling
-// @media (max-width: 800px ) {
-
-// }
-
-// @media (max-width: 1050px) {
-
-// }
-
-// @media (max-width: 1300px) {
-
-// }
-
-// @media (max-width: 1600px) {
-
-// }
-
-// @media (max-width: 2150px) {
-
-// }
+// Reasoning for the ungodly long .scss :
+// I prefer to us VSCode to collapse and expand different sections within the
+// singular file so I can worry less about imports, don't have to frequently navigate the file structure,
+// and can use command+f to search easier
 
 //imports
 @use 'sass:math';
@@ -689,7 +673,6 @@ section.landing {
       }
     }
   }
-
   .chapters {
     position: absolute;
     top: 0;
@@ -831,21 +814,53 @@ section.landing {
           color: $big-text-color-blue;
         }
       }
+      &.chapter-02 {
+        .illustration {
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          color: $webstacksBlue;
+        }
+        .section-title {
+          color: $big-text-color-blue;
+        }
+      }
+      &.chapter-03 {
+        .illustration {
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          color: $webstacksBlue;
+        }
+        .section-title {
+          color: $big-text-color-blue;
+        }
+      }
+      &.chapter-04 {
+        .illustration {
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          color: $webstacksBlue;
+        }
+        .section-title {
+          color: $big-text-color-blue;
+        }
+      }
       &.is-active {
         pointer-events: auto;
-        display: flex;
 
         .element {
           opacity: 1;
           transform: translateX(0);
           transition-timing-function: ease-out;
-          &.delay-0 {
+          &.ch-delay-0 {
             transition-delay: 0s;
           }
-          &.delay-1 {
+          &.ch-delay-1 {
             transition-delay: 0.05s;
           }
-          &.delay-2 {
+          &.ch-delay-2 {
             transition-delay: 0.1s;
           }
         }

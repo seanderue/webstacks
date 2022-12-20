@@ -121,7 +121,7 @@ export default function Model(props) {
             rotation-x={-1.57}>
             <iframe src='https://seanderue.notion.site/f4bf4268a44e4f1a8309fbc0a34d589a?v=d77e97503ac54a858cb6afe563ab695d' />
           </Html> */}
-          {!isClosed && stageLevel === 1 && <PlanLaptopScreen />}
+          <PlanLaptopScreen />
           {/* @ts-ignore */}
           <mesh geometry={nodes.Circle002.geometry} material={nodes.Circle002.material} />
           {/* @ts-ignore */}

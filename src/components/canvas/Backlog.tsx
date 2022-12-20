@@ -90,12 +90,135 @@ export default function RoundedSquareGrid(props) {
         rotation={[Math.PI / 2, Math.PI / 2, 0]}>
         Backlog
       </AnimatedText>
-      <RoundedSquareExtruded
-        extrudeSettings={smallExtrudeSettings}
-        {...smallSquareParams}
-        position={[0, 0, verticalGap * 0.5]}
-        rotation={[0, 0, 0]}
-      />
+      {/* Bottom Row Items */}
+      <group>
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[0, 0, verticalGap * 0.5 * 0.75]}
+          rotation={[0, 0, 0]}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[0, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 0.75]}
+          rotation={[0, 0, 0]}
+          color={'#55a289'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 3, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 0.75]}
+          rotation={[0, 0, 0]}
+          color={'#319bbb'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[
+            (smallSquareParams.width + gap * 3) * 2,
+            (smallSquareParams.width + gap * 3) * 2,
+            verticalGap * 0.5 * 0.75,
+          ]}
+          rotation={[0, 0, 0]}
+          color={'#6275c3'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[(smallSquareParams.width + gap * 3) * 2, 0, verticalGap * 0.5 * 0.75]}
+          rotation={[0, 0, 0]}
+          color={'#223eac'}
+        />
+      </group>
+      {/* Middle Row Items */}
+      <group>
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 8.5, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+          color={'#223eac'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[0, smallSquareParams.width + gap * 8.5, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 3, smallSquareParams.width + gap * 8.5, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+          color={'#55a289'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[0, 0, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 3, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+          color={'#6275c3'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[
+            (smallSquareParams.width + gap * 3) * 2,
+            (smallSquareParams.width + gap * 3) * 2,
+            verticalGap * 0.5 * 2.75,
+          ]}
+          rotation={[0, 0, 0]}
+          color={'#319bbb'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[(smallSquareParams.width + gap * 3) * 2, 0, verticalGap * 0.5 * 2.75]}
+          rotation={[0, 0, 0]}
+          color={'#319bbb'}
+        />
+      </group>
+      {/* Top Row Items */}
+      <group>
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 8.5, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 4.75]}
+          rotation={[0, 0, 0]}
+          color={'#319bbb'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[smallSquareParams.width + gap * 3, smallSquareParams.width + gap * 3, verticalGap * 0.5 * 4.75]}
+          rotation={[0, 0, 0]}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[
+            (smallSquareParams.width + gap * 3) * 2,
+            (smallSquareParams.width + gap * 3) * 2,
+            verticalGap * 0.5 * 4.75,
+          ]}
+          rotation={[0, 0, 0]}
+          color={'#223eac'}
+        />
+        <RoundedSquareExtruded
+          extrudeSettings={smallExtrudeSettings}
+          {...smallSquareParams}
+          position={[(smallSquareParams.width + gap * 3) * 2, 0, verticalGap * 0.5 * 4.75]}
+          rotation={[0, 0, 0]}
+          color={'#6275c3'}
+        />
+      </group>
 
       {/* Row 1 w/ 1 col  */}
       <RoundedSquareExtruded
