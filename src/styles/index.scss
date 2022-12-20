@@ -708,6 +708,9 @@ section.landing {
     @media (max-width: 1050px) {
       width: 360px;
     }
+    @media (max-width: 800px) {
+      display: none;
+    }
 
     .container {
       position: absolute;
