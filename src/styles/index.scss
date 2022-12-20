@@ -65,6 +65,7 @@ html,
 body {
   font-family: Averta Standard, sans-serif;
   font-size: 20px;
+  background-color: $dark-bg;
 
   // Responsive Styling
   @media (max-width: 800px) {
