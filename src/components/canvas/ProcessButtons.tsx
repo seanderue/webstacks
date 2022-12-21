@@ -5,6 +5,7 @@ import { useState } from 'react'
 import DesignIcon from './DesignIcon'
 import PlanIcon from './PlanIcon'
 import BuildIcon from './BuildIcon'
+import OptimizeIcon from './OptimizeIcon'
 import { animated, useSpring } from '@react-spring/three'
 import { useStageLevelContext } from './context/StageLevelContext'
 import { customPointerEvents } from '@/helpers/customPointerEvents'
@@ -185,6 +186,7 @@ function Button(props: any) {
   const AnimatedPlanIcon = animated(PlanIcon)
   const AnimatedDesignIcon = animated(DesignIcon)
   const AnimatedBuildIcon = animated(BuildIcon)
+  const AnimatedOptimizeIcon = animated(OptimizeIcon)
   const AnimatedText = animated(Text)
 
   return (
@@ -219,7 +221,7 @@ function Button(props: any) {
       )}
       {props.type === 'Optimize' && (
         // @ts-ignore
-        <AnimatedPlanIcon scale={spring.scale} position={spring.position} rotation={[1.28, 0.21, -0.06]} />
+        <AnimatedOptimizeIcon scale={spring.scale} position={spring.position} rotation={[1.28, 0.21, -0.06]} />
       )}
       <mesh
         position={[-0.125, 1, 0]}

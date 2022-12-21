@@ -88,7 +88,7 @@ export default function Page(props) {
             I want to be a part of Webstacks&apos; next success stories. I made this site to prove it.
           </p>
           <p className='element description delay-3'>
-            ( Built in 20 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO
+            ( Built in 21 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO
             friendliness in mind )
           </p>
           <p className='element description delay-4'>Lorem Ipsum</p>
@@ -166,8 +166,9 @@ export default function Page(props) {
               <h3 className='section-title element ch-delay-1'>Planning</h3>
               <div className='description element ch-delay-2'>
                 <p>
-                  Something something T-shaped skillset that means I won&amp;t need a translator for marketing-speak. I
-                  know expertise shines in the details. I know what is important to the end user.
+                  {
+                    "Something something T-shaped skillset that means I won't need a translator for marketing-speak. I know expertise shines in the details. I know what is important to the end user."
+                  }
                 </p>
               </div>
             </div>
