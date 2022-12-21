@@ -14,7 +14,11 @@ export default function parseDescriptionWithDelays(baseClassName: string, datoEl
     if (element.children[0].value) {
       if (debug) console.log(element)
       const className = `${baseClassName} delay-${i + 1}`
-      return <p className={className}>{element.children[0].value}</p>
+      return (
+        <p className={className} key={i}>
+          {element.children[0].value}
+        </p>
+      )
     }
   })
 
