@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
+import { Image, renderMetaTags, StructuredText } from 'react-datocms'
 import { LaptopProvider, useLaptopContext } from '../canvas/context/LaptopContext'
 import { StageLevelProvider, useStageLevelContext } from '../canvas/context/StageLevelContext'
 import { Perf } from 'r3f-perf'
 import { Effects, Environment, PresentationControls } from '@react-three/drei'
 import ExperienceBase from '../canvas/ExperienceBase'
+import Head from 'next/head'
+import parseDescriptionWithDelays from '@/helpers/parseDescriptionWithDelays'
 
 export default function Page(props) {
   // Triggers when user touches canvas (used for css animations)
@@ -65,8 +68,21 @@ export default function Page(props) {
   const buildLabelClass = `level ${getActivity(3)}`
   const optimizeLabelClass = `level ${getActivity(4)}`
 
+  console.log(props.data.homepage)
+  const { homepage } = props.data
+  const { site } = props.data
+  const { chapters } = props.data
+
+  const description = homepage.heroContent.value.document.children
+  console.log('description:')
+  console.log(description)
+
+  const descriptionElements = parseDescriptionWithDelays('element description', description)
+
   return (
     <>
+      {/* Passing SEO metadata through DatoCMS */}
+      <Head>{renderMetaTags(homepage.seo.concat(site.favicon))}</Head>
       <section className={isInteracting ? 'landing is-interacting' : 'landing is-not-interacting'}>
         {/* <Overlay /> */}
         <div className='mask is-top' />
@@ -74,24 +90,15 @@ export default function Page(props) {
         <div className='mask is-bottom' />
         <div className='mask is-left' />
         <div className='content delay-1'>
-          <h1 className='element main-title delay-0'>
-            Your Next React Engineer
-            {/* <br /> Hire a React Engineer */}
-          </h1>
-          <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1'>
-            <Image className='picture' src='/img/author.jpeg' alt={'Sean DeRue'} width={64} height={64} />
+          <h1 className='element main-title delay-0'>{props.data.homepage.title}</h1>
+          <a href={homepage.authorLinkedinUrl} className='element author delay-1'>
+            {/* Using DatoCMS Image for optimized image loading */}
+            <Image className='picture' data={homepage.authorImage.responsiveImage} />
             <span className='label'>
-              A Cover-Letter Experience <br /> by <span className='underline-container'>Sean DeRue</span>
+              A Cover-Letter Experience <br /> by <span className='underline-container'>{homepage.authorName}</span>
             </span>
           </a>
-          <p className='element description delay-2'>
-            I want to be a part of Webstacks&apos; next success stories. I made this site to prove it.
-          </p>
-          <p className='element description delay-3'>
-            ( Built in 21 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO
-            friendliness in mind )
-          </p>
-          <p className='element description delay-4'>Lorem Ipsum</p>
+          {descriptionElements}
         </div>
         <div className='experience' onMouseDown={!isInteracting ? toggleIsInteracting : () => {}}>
           {props.children}
@@ -178,7 +185,7 @@ export default function Page(props) {
                 <div className='shadow' />
               </div>
               <div className='illustration'>
-                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
               </div>
               <small className='number element ch-delay-0'>02</small>
               <h3 className='section-title element ch-delay-1'>Designing</h3>
@@ -192,7 +199,7 @@ export default function Page(props) {
                 <div className='shadow' />
               </div>
               <div className='illustration'>
-                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
               </div>
               <small className='number element ch-delay-0'>03</small>
               <h3 className='section-title element ch-delay-1'>Building</h3>
@@ -206,7 +213,7 @@ export default function Page(props) {
                 <div className='shadow' />
               </div>
               <div className='illustration'>
-                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
+                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
               </div>
               <small className='number element ch-delay-0'>04</small>
               <h3 className='section-title element ch-delay-1'>Optimizing</h3>
@@ -232,18 +239,10 @@ export default function Page(props) {
 Page.canvas = (props) => (
   <>
     <group position={[0, -3, 0]}>
-      {/* <Perf position='top-left' /> */}
-
-      {/* Staging */}
-      {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
-        <orthographicCamera attach='shadow-camera' left={-20} right={20} top={20} bottom={-20} />
-      </directionalLight> */}
-
       <Effects />
       <Environment preset='city' />
 
       {/* Meshes */}
-      {/* <Blob route='/' position-y={3.75} /> */}
       <PresentationControls
         global
         cursor={true}
@@ -253,11 +252,6 @@ Page.canvas = (props) => (
         config={{ mass: 2, tension: 400 }}>
         <ExperienceBase />
       </PresentationControls>
-
-      {/* 3D Text */}
-      {/* <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
-        [ ]
-      </Text> */}
     </group>
   </>
 )

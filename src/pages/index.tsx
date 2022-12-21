@@ -12,27 +12,89 @@ import Image from 'next/image'
 import { StageLevelProvider, useStageLevelContext } from '@/components/canvas/context/StageLevelContext'
 import { LaptopProvider } from '@/components/canvas/context/LaptopContext'
 import IndexDom from '@/components/dom/IndexDom'
+import { request } from '@/lib/datocms'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
 // const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
 
-export default function Page(props) {
-  // const [isInteracting, setIsInteracting] = useState(false)
-  // const toggleIsInteracting = () => {
-  //   setIsInteracting((prev) => !prev)
-  // }
-  // const [stageLevel, setStageLevel] = useStageLevelContext()
+const HOMEPAGE_QUERY = `query MyQuery {
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  allChapters {
+    bodyText {
+      value
+    }
+    slug
+    mainTitle
+    subtitle
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  homepage {
+    heroContent {
+      value
+    }
+    authorName
+    authorLinkedinUrl
+    authorImage {
+      responsiveImage(imgixParams: { fit: crop, w: 64, h: 64, auto: format }) {
+        alt
+        aspectRatio
+        bgColor
+        base64
+        height
+        sizes
+        src
+        srcSet
+        title
+        webpSrcSet
+        width
+      }
+    }
+    title
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: HOMEPAGE_QUERY,
+    variables: null,
+    includeDrafts: false,
+    excludeInvalid: true,
+  })
+  return {
+    props: { data },
+  }
+}
+
+export default function Home(props) {
+  const { data } = props
+  console.log(data)
 
   return (
     <StageLevelProvider>
       <LaptopProvider>
-        <IndexDom>{props.children}</IndexDom>
+        <IndexDom data={data}>{props.children}</IndexDom>
       </LaptopProvider>
     </StageLevelProvider>
   )
 }
 
-Page.canvas = (props) => (
+Home.canvas = (props) => (
   <>
     <group position={[0, -3, 0]}>
       {/* <Perf position='top-left' /> */}
@@ -64,7 +126,3 @@ Page.canvas = (props) => (
     </group>
   </>
 )
-
-// export async function getStaticProps() {
-//   return { props: { title: 'Blob' } }
-// }

@@ -30,15 +30,17 @@ export default function Experience(props) {
 
   return (
     <>
-      {/* Experiences */}
-      <PlanExperience />
-      <DesignExperience />
-      <BuildExperience />
-      <OptimizeExperience />
+      <group position={[-0.5, 0, 0]}>
+        {/* Experiences */}
+        <PlanExperience />
+        <DesignExperience />
+        <BuildExperience />
+        <OptimizeExperience />
 
-      {/* Laptop & Buttons*/}
-      <ProcessButtons />
-      <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
+        {/* Laptop & Buttons*/}
+        <ProcessButtons />
+        <Laptop position={[0, 0, 0]} rotation={[0.122173, 0.296706, 0.03490659]}></Laptop>
+      </group>
 
       {/* Reflection Plane */}
       {/* <PlaneReflector position={[0, 0, 0]} />*/}

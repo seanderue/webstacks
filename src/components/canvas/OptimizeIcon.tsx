@@ -2,8 +2,6 @@ import React, { useRef } from 'react'
 import { useGLTF, PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
 
-useGLTF.preload('/optimize-icon1.gltf')
-
 // import React, { useRef } from "react";
 // import { useGLTF } from "@react-three/drei";
 
