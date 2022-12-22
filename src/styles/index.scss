@@ -1303,8 +1303,8 @@ section.table-of-content {
     padding-bottom: 45px;
     padding-left: 60px;
     border-radius: 15px;
-    background: $offwhite-text;
-    box-shadow: 0px 50px 60px rgba(146, 193, 250, 0.052);
+    background: $white;
+    box-shadow: 0px 50px 60px rgba(146, 193, 250, 0.166);
 
     @media (max-width: 1600px) {
       margin-top: 45px;
@@ -1414,7 +1414,7 @@ section.table-of-content {
     .column:first-child {
       margin-right: 55px;
 
-      @media (max-width: 600px) {
+      @media (max-width: 1300px) {
         margin-right: 0;
       }
       //   padding-right: 80px;
