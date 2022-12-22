@@ -1,4 +1,3 @@
-import { customPointerEvents } from '@/helpers/customPointerEvents'
 import { Decal, Float, useTexture } from '@react-three/drei'
 import { Vector3, Color } from '@react-three/fiber'
 import { useState } from 'react'
@@ -25,7 +24,7 @@ export default function Component(props: {
         <meshStandardMaterial
           color={hovered ? '#2885f6' : props.color}
           polygonOffset
-          polygonOffsetFactor={-10}
+          polygonOffsetFactor={-5}
           flatShading
         />
         <Decal

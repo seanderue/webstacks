@@ -1,10 +1,9 @@
-import { useControls } from 'leva'
+// import { useControls } from 'leva'
 import { Euler } from 'three'
 import DecalBall from './DecalBall'
 import { animated, useSpring } from '@react-spring/three'
 import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
-import { customPointerEvents } from '@/helpers/customPointerEvents'
 
 export default function Component(props) {
   //   const graphQlConfig = useControls('graphQl', {
@@ -121,7 +120,7 @@ export default function Component(props) {
     decalScaleLarge: number
   }
 
-  const displayBalls = !isClosed && stageLevel === 1
+  const displayBalls = !isClosed && stageLevel === 3
 
   const spring = useSpring<springTypes>({
     graphQLPosition: displayBalls ? [-4.25, 0.55, -2] : [0, 0, 0],
@@ -132,21 +131,25 @@ export default function Component(props) {
     reactPosition: displayBalls ? [1.25, 1.25, 0.5] : [0, 0, 0],
     reactNativePosition: displayBalls ? [2, 0.75, 0.65] : [0, 0, 0],
     nextPosition: displayBalls ? [2.25, 1.25, 0] : [0, 0, 0],
-    scale: displayBalls ? 1 : 0,
     decalScale: displayBalls ? 0.5 : 0,
     decalScaleLarge: displayBalls ? 0.75 : 0,
+    // scale: displayBalls ? 1 : 0,
     // largestScale: displayBalls ? [0.55, 1] : [0],
     // largeScale: displayBalls ? [0.5, 1] : [0],
     // midScale: displayBalls ? [0.4, 1] : [0],
     // smallScale: displayBalls ? [0.35, 1] : [0],
   })
 
+  const scale = 1
+  const decalScale = 0.5
+  const decalScaleLarge = 0.75
+
   return (
     <>
       {/* GraphQL */}
       <AnimatedDecalBall
         // @ts-ignore
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/graphql.webp'}
         // {...graphQlConfig}
         position={spring.graphQLPosition}
@@ -160,7 +163,7 @@ export default function Component(props) {
       />
       {/* Typescript */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/typescript.webp'}
         // {...typescriptConfig}
         position={spring.typesciptPosition}
@@ -176,7 +179,7 @@ export default function Component(props) {
       />
       {/* AWS */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/aws.webp'}
         // {...awsConfig}
         // rotation={awsConfig.rotation}
@@ -190,7 +193,7 @@ export default function Component(props) {
       />
       {/* Netlify */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/netlify.webp'}
         // {...netlifyConfig}
         // rotation={netlifyConfig.rotation}
@@ -204,7 +207,7 @@ export default function Component(props) {
       />
       {/* Vercel */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/vercel.webp'}
         // {...vercelConfig}
         // rotation={vercelConfig.rotation}
@@ -218,7 +221,7 @@ export default function Component(props) {
       />
       {/* React */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/react.png'}
         // {...reactConfig}
         // rotation={reactConfig.rotation}
@@ -232,7 +235,7 @@ export default function Component(props) {
       />
       {/* React Native */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/react-native.webp'}
         // {...reactNativeConfig}
         // rotation={reactNativeConfig.rotation}
@@ -246,7 +249,7 @@ export default function Component(props) {
       />
       {/* Next.JS */}
       <AnimatedDecalBall
-        scale={spring.scale}
+        scale={scale}
         imgPath={'./img/next.webp'}
         // {...nextConfig}
         // rotation={nextConfig.rotation}

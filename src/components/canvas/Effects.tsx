@@ -1,7 +1,4 @@
-import { EffectComposer, Bloom, Noise, Vignette, DepthOfField, SSR } from '@react-three/postprocessing'
-import { useControls } from 'leva'
-import { BlendFunction } from 'postprocessing'
-import { FXAAShader } from 'three-stdlib'
+import { EffectComposer } from '@react-three/postprocessing'
 
 export default function Effects() {
   // const ssrProps = useControls({

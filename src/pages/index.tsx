@@ -1,35 +1,150 @@
-import dynamic from 'next/dynamic'
-import { ReactDOM } from 'react-dom/client'
-import Instructions from '@/components/dom/Instructions'
-import IndependentCanvas from '@/components/canvas/IndependentCanvas'
-
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
-const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
 
-// const root = ReactDOM.createRoot(document.querySelector('#root-experience'))
+import { Environment, PresentationControls } from '@react-three/drei'
+import Effects from '@/components/canvas/Effects'
+import ExperienceBase from '@/components/canvas/ExperienceBase'
+import Image from 'next/image'
+import { StageLevelProvider, useStageLevelContext } from '@/components/canvas/context/StageLevelContext'
+import { LaptopProvider } from '@/components/canvas/context/LaptopContext'
+import IndexDom from '@/components/dom/IndexDom'
+import { request } from '@/lib/datocms'
 
-// Dom components go here
-export default function Page(props) {
+export const QUERY = `query MyQuery {
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  allChapters {
+      bodyText {
+        blocks {
+          __typename
+        	... on ImageRecord {
+          id
+						image {
+            responsiveImage {
+              alt
+              aspectRatio
+              base64
+              bgColor
+              height
+              sizes
+              src
+              srcSet
+              title
+              webpSrcSet
+              width
+            }
+          }
+      	}
+      }
+        value
+    }
+    slug
+    mainTitle
+    subtitle
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+    stageLevel
+  }
+  homepage {
+    heroContent1 {
+      value
+    }
+    heroContent2 {
+      value
+    }
+    heroContent3 {
+      value
+    }
+    authorName
+    authorLinkedinUrl
+    authorImage {
+      responsiveImage(imgixParams: {fit: crop, w: 64, h: 64, auto: format}) {
+        alt
+        aspectRatio
+        bgColor
+        base64
+        height
+        sizes
+        src
+        srcSet
+        title
+        webpSrcSet
+        width
+      }
+    }
+    title
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: QUERY,
+    variables: null,
+    includeDrafts: false,
+    excludeInvalid: true,
+  })
+  return {
+    props: { data },
+  }
+}
+
+export default function Home(props) {
+  const { data } = props
+
   return (
-    <>
-      <Instructions>
-        This is a minimal starter for Nextjs + React-three-fiber and Threejs. Click on the{' '}
-        <span className='text-cyan-200'>atoms nucleus</span> to navigate to the{' '}
-        <span className='text-green-200'>/blob</span> page. OrbitControls are enabled by default.
-      </Instructions>
-      <div id='root-experience'></div>
-      <IndependentCanvas ref={props.ref} route={'/'} />
-    </>
+    <StageLevelProvider>
+      <LaptopProvider>
+        <IndexDom data={data}>{props.children}</IndexDom>
+      </LaptopProvider>
+    </StageLevelProvider>
   )
 }
 
-// Canvas components go here
-// It will receive same props as the Page component (from getStaticProps, etc.)
-Page.canvas = (props) => <Logo scale={0.5} route='/blob' position-y={-1} />
+Home.canvas = (props) => (
+  <>
+    <group position={[0, -3, 0]}>
+      {/* <Perf position='top-left' /> */}
 
-export async function getStaticProps() {
-  return { props: { title: 'Index' } }
-}
+      {/* Staging */}
+      {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+        <orthographicCamera attach='shadow-camera' left={-20} right={20} top={20} bottom={-20} />
+      </directionalLight> */}
+
+      <Effects />
+      <Environment preset='city' />
+
+      {/* Meshes */}
+      {/* <Blob route='/' position-y={3.75} /> */}
+      <PresentationControls
+        global
+        cursor={true}
+        rotation={[0.13, 0.1, 0]}
+        polar={[-0.2, 0.2]}
+        azimuth={[-1, 0.75]}
+        config={{ mass: 2, tension: 400 }}>
+        <ExperienceBase />
+      </PresentationControls>
+
+      {/* 3D Text */}
+      {/* <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
+        [ ]
+      </Text> */}
+    </group>
+  </>
+)

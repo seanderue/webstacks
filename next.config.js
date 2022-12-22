@@ -13,7 +13,9 @@ const nextConfig = {
   //   styledComponents: true,
   // },
   experimental: {},
-  images: {},
+  images: {
+    domains: ['www.datocms-assets.com'],
+  },
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   webpack(config, { isServer }) {
     // audio support
@@ -65,6 +67,7 @@ module.exports = (_phase, { defaultConfig }) => {
   })
 
   const finalConfig = {}
+
   Object.keys(wConfig).forEach((key) => {
     if (!KEYS_TO_OMIT.includes(key)) {
       finalConfig[key] = wConfig[key]

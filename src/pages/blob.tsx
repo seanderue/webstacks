@@ -1,31 +1,13 @@
 import dynamic from 'next/dynamic'
-import Instructions from '@/components/dom/Instructions'
-import Text from '@/components/canvas/Text'
 import { Perf } from 'r3f-perf'
-import Overlay from '@/components/dom/Overlay'
 import { useState } from 'react'
-import PlaneReflector from '@/components/canvas/PlaneReflector'
-import { useControls } from 'leva'
-import {
-  Html,
-  Backdrop,
-  Environment,
-  Float,
-  MeshReflectorMaterial,
-  PivotControls,
-  PresentationControls,
-} from '@react-three/drei'
+import { Environment, PresentationControls } from '@react-three/drei'
 import Effects from '@/components/canvas/Effects'
-import Laptop from '@/components/canvas/Laptop'
-import ProcessButtons from '@/components/canvas/ProcessButtons'
-import DesignIcon from '@/components/canvas/DesignIcon'
-import DecalBall from '@/components/canvas/DecalBall'
-import TechConstellation from '@/components/canvas/TechConstellation'
-import PlanExperience from '@/components/canvas/PlanExperience'
 import ExperienceBase from '@/components/canvas/ExperienceBase'
+import Image from 'next/image'
 // import CryptoCoin from '@/components/canvas/CryptoCoin'
 
-const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
+// const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
 
 export default function Page(props) {
   const [isInteracting, setIsInteracting] = useState(false)
@@ -46,14 +28,14 @@ export default function Page(props) {
             Your Next React Engineer
             {/* <br /> Hire a React Engineer */}
           </h1>
-          <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1' target='_blank'>
-            <img className='picture' src='img/author.jpeg' />
+          <a href='https://www.linkedin.com/in/sean-derue/' className='element author delay-1'>
+            <Image className='picture' src='/img/author.jpeg' alt={'Sean DeRue'} width={64} height={64} />
             <span className='label'>
               A Cover-Letter Experience <br /> by <span className='underline-container'>Sean DeRue</span>
             </span>
           </a>
           <p className='element description delay-2'>
-            I want to be a part of Webstacks' next success stories. I made this site to prove it.
+            I want to be a part of Webstacks&apos; next success stories. I made this site to prove it.
           </p>
           <p className='element description delay-3'>
             ( Built in 20 days using Typescript, React, Next.js, Three.js, with responsive, accessible, and SEO
@@ -88,7 +70,7 @@ export default function Page(props) {
 Page.canvas = (props) => (
   <>
     <group position={[0, -3, 0]}>
-      <Perf position='top-left' />
+      {/* <Perf position='top-left' /> */}
 
       {/* Staging */}
       {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
@@ -118,6 +100,6 @@ Page.canvas = (props) => (
   </>
 )
 
-export async function getStaticProps() {
-  return { props: { title: 'Blob' } }
-}
+// export async function getStaticProps() {
+//   return { props: { title: 'Blob' } }
+// }
