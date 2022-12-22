@@ -24,7 +24,7 @@ export default function Chapter(props: { chapterIndex: number; stageLevel: any; 
         <StructuredText data={content.bodyText} />
       </div>
       <small className='description element ch-delay-3'>
-        <i>Content hydrated statically from DatoCMS's GraphQL endpoint</i>
+        <i>{"Content hydrated statically from DatoCMS's GraphQL endpoint"}</i>
       </small>
     </div>
   )
