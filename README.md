@@ -20,6 +20,4 @@ React-Three/Fiber for unique 3D experience
 
 Sass for CSS management
 
-You're welcome to examine the codebase herehttps://github.com/seanderue/webstacks, but
-I'd welcome the opportunity to discuss it over an interview 😉.
-
+There are still a handful of things I would've liked to add onto the project, but I gave myself a deadline. Thankfully a website is never finished, right?
