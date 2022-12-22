@@ -78,7 +78,7 @@ export default function RoundedSquareGrid(props) {
       <AnimatedText
         scale={1}
         strokeOpacity={0}
-        font={'./fonts/woff2/Averta-Standard-Semibold.woff'}
+        font={'./fonts/woff/hinted-AvertaStd-Semibold.woff'}
         color={'white'}
         fontSize={0.5}
         characters='Backlog'
