@@ -26,8 +26,29 @@ const HOMEPAGE_QUERY = `query MyQuery {
     }
   }
   allChapters {
-    bodyText {
-      value
+      bodyText {
+        blocks {
+          __typename
+        	... on ImageRecord {
+          id
+						image {
+            responsiveImage {
+              alt
+              aspectRatio
+              base64
+              bgColor
+              height
+              sizes
+              src
+              srcSet
+              title
+              webpSrcSet
+              width
+            }
+          }
+      	}
+      }
+        value
     }
     slug
     mainTitle
@@ -37,6 +58,7 @@ const HOMEPAGE_QUERY = `query MyQuery {
       content
       tag
     }
+    stageLevel
   }
   homepage {
     heroContent1 {
@@ -51,7 +73,7 @@ const HOMEPAGE_QUERY = `query MyQuery {
     authorName
     authorLinkedinUrl
     authorImage {
-      responsiveImage(imgixParams: { fit: crop, w: 64, h: 64, auto: format }) {
+      responsiveImage(imgixParams: {fit: crop, w: 64, h: 64, auto: format}) {
         alt
         aspectRatio
         bgColor
