@@ -153,8 +153,8 @@ export default function RoundedSquareGrid({ position, rotation }) {
         position={[0, 0.89 - workspaceSquareParams.height - rectangleParams.height - terminalSquareParams.height, 0.05]}
         rotation={[0, 0, 0]}
       />
-      <RoundedSquare {...textSquareParams} width={2.75} position={[0.25, 0.65 - 0.125 * 20, 0.05]} color={'#dadada'} />
-      <RoundedSquare {...textSquareParams} width={1.5} position={[0.25, 0.65 - 0.125 * 21, 0.05]} color={'#dadada'} />
+      <RoundedSquare {...textSquareParams} width={2.75} position={[0.25, 0.65 - 0.125 * 20, 0.1]} color={'#dadada'} />
+      <RoundedSquare {...textSquareParams} width={1.5} position={[0.25, 0.65 - 0.125 * 21, 0.1]} color={'#dadada'} />
       {/* ---Explorer--- */}
       <RoundedSquare
         width={0.75}
