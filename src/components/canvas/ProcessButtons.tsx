@@ -13,8 +13,6 @@ import { useLaptopContext } from './context/LaptopContext'
 import { EulerOrder } from 'three'
 
 const BUTTON_WIDTH = 1.5
-const BUTTON_HEIGHT = 2
-const BUTTON_DEPTH = 0.25
 const BUTTON_MARGIN = 0.1
 
 export default function ProcessButtons(props: GroupProps) {

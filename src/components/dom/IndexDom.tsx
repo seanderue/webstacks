@@ -16,6 +16,10 @@ export default function Page(props) {
   // Wrapper state for isInteracting with stateful delays (used for css animations)
   const [isActive, setIsActive] = useState(false)
 
+  console.log(
+    'Thanks for looking at my work with such vigorous curiosity. As a reward, if you click the target on the optimize page, the car will go faster 😉',
+  )
+
   const toggleIsInteracting = () => {
     setIsInteracting((prev) => !prev)
     if (isActive) {
@@ -75,11 +79,11 @@ export default function Page(props) {
   const chapters = props.data.allChapters
   console.log(chapters)
 
-  const description = homepage.heroContent.value.document.children
-  console.log('description:')
-  console.log(description)
+  // const description = homepage.heroContent.value.document.children
+  // console.log('description:')
+  // console.log(description)
 
-  const descriptionElements = parseDescriptionWithDelays('element description', description)
+  // const descriptionElements = parseDescriptionWithDelays('element description', description)
 
   return (
     <>
@@ -100,7 +104,17 @@ export default function Page(props) {
               A Cover-Letter Experience <br /> by <span className='underline-container'>{homepage.authorName}</span>
             </span>
           </a>
-          {descriptionElements}
+          {/* {descriptionElements} */}
+          <div className='description element delay-1'>
+            <StructuredText data={homepage.heroContent1.value} />
+          </div>
+          <div className='description element delay-2'>
+            <StructuredText data={homepage.heroContent2.value} />
+          </div>
+          <div className='description element delay-3'>
+            <StructuredText data={homepage.heroContent3.value} />
+          </div>
+          {/* {baseClassName} delay-${i + 1} */}
         </div>
         <div className='experience' onMouseDown={!isInteracting ? toggleIsInteracting : () => {}}>
           {props.children}

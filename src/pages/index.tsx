@@ -39,7 +39,13 @@ const HOMEPAGE_QUERY = `query MyQuery {
     }
   }
   homepage {
-    heroContent {
+    heroContent1 {
+      value
+    }
+    heroContent2 {
+      value
+    }
+    heroContent3 {
       value
     }
     authorName

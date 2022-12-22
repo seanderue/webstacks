@@ -18,7 +18,7 @@ export default function Model(props: JSX.IntrinsicAttributes & { [properties: st
   // })
 
   return (
-    <group scale={1} rotation={[-0.2, -0.25, 0]} position={[2, 2.5, 0]}>
+    <group onClick={props.onClick} scale={1} rotation={[-0.2, -0.25, 0]} position={[2, 2.5, 0]}>
       <primitive ref={ref} object={scene} {...props} />
     </group>
   )
