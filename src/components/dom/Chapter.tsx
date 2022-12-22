@@ -9,16 +9,13 @@ export default function Chapter(props: { chapterIndex: number; stageLevel: any; 
       : `chapter chapter-0${props.chapterIndex}`
 
   const content = props.data
-  console.log(content)
+  //   console.log(content)
 
   return (
     <div className={className}>
       <div className='grid'>
         <div className='shadow' />
       </div>
-      {/* <div className='illustration'>
-                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
-              </div> */}
       <small className='number element ch-delay-0'>{content.subtitle}</small>
       <h3 className='section-title element ch-delay-1'>{content.mainTitle}</h3>
       <div className='description element ch-delay-2'>

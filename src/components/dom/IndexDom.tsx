@@ -12,29 +12,69 @@ import Chapter from './Chapter'
 import ExperienceNavigation from './ExperienceNavigation'
 import DynamicExperienceMasks from './DynamicExperienceMasks'
 import HeroContent from './HeroContent'
+import MobileChapter from './Intro'
+import Intro from './Intro'
 
 export default function Page(props) {
   // Triggers when user touches canvas (used for css animations)
   const [isInteracting, setIsInteracting] = useState(false)
   // Wrapper state for isInteracting with stateful delays (used for css animations)
   const [isActive, setIsActive] = useState(false)
+  // Manages responsive state for mobile devices
+  const [isMobile, setIsMobile] = useState(false)
+
+  const [width, setWidth] = useState(1500)
 
   console.log(
     'Thanks for looking at my work with such vigorous curiosity. As a reward, if you click the target on the optimize page, the car will go faster 😉',
   )
+  console.log(width)
 
   const toggleIsInteracting = () => {
     setIsInteracting((prev) => !prev)
     if (isActive) {
       setIsActive((prev) => !prev)
     } else {
+      // Taking a second for animation purposes
       setTimeout(() => setIsActive((prev) => !prev), 1000)
     }
   }
+
+  // making sure the function is being called in client side only (not SSR)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setWidth(window.innerWidth)
+
+      const handleResize = () => {
+        setWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleResize)
+
+      // Clean up the event listener when the component unmounts
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (width < 800) {
+      // device is a mobile device
+      console.log('mobile')
+      console.log(width)
+      setIsMobile(true)
+      setIsInteracting(true)
+      setIsActive(true)
+    } else {
+      setIsMobile(false)
+    }
+  }, [width])
+
   const [stageLevel, setStageLevel] = useStageLevelContext()
 
   // Parsing GraphQL Response into variables
-  console.log(props.data.homepage)
+  // console.log(props.data.homepage)
   const { homepage } = props.data
   const { site } = props.data
   const chapters = props.data.allChapters
@@ -43,8 +83,6 @@ export default function Page(props) {
   const chapter2 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 2)[0]
   const chapter3 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 3)[0]
   const chapter4 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 4)[0]
-  console.log('chapter0')
-  console.log(chapter0)
 
   return (
     <>
@@ -63,7 +101,7 @@ export default function Page(props) {
             <span className='label'>Click to explore</span>
           </button>
         </div>
-        <button className='close' aria-label='Close' onClick={toggleIsInteracting}>
+        <button className={width < 800 ? 'hidden' : 'close'} aria-label='Close' onClick={toggleIsInteracting}>
           <span className='background' />
           <span className='bars'>
             <span className='bar bar-1' />
@@ -82,12 +120,35 @@ export default function Page(props) {
           <div className='overlay is-bottom' />
         </div>
       </section>
+      <section className='table-of-content'>
+        <div className='columns'>
+          {/* Put all chapters into one column if width gets below 1300 */}
+          {width > 1300 ? (
+            <>
+              <div className='column'>
+                <Intro data={chapter0} />
 
-      {/* <section className='presentation'>
-        <div className='content'>
-          <h1 style={{ textAlign: 'center' }}>Temporary styling within temp div on presentation</h1>
+                <Chapter chapterIndex={2} stageLevel={stageLevel} isActive={isActive} data={chapter2} />
+
+                <Chapter chapterIndex={4} stageLevel={stageLevel} isActive={isActive} data={chapter4} />
+              </div>
+              <div className='column'>
+                <Chapter chapterIndex={1} stageLevel={stageLevel} isActive={isActive} data={chapter1} />
+
+                <Chapter chapterIndex={3} stageLevel={stageLevel} isActive={isActive} data={chapter3} />
+              </div>
+            </>
+          ) : (
+            <div className='column'>
+              <Intro data={chapter0} />
+              <Chapter chapterIndex={1} stageLevel={stageLevel} isActive={isActive} data={chapter1} />
+              <Chapter chapterIndex={2} stageLevel={stageLevel} isActive={isActive} data={chapter2} />
+              <Chapter chapterIndex={3} stageLevel={stageLevel} isActive={isActive} data={chapter3} />
+              <Chapter chapterIndex={4} stageLevel={stageLevel} isActive={isActive} data={chapter4} />
+            </div>
+          )}
         </div>
-      </section> */}
+      </section>
     </>
   )
 }
