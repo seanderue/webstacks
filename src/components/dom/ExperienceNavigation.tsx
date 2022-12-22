@@ -26,7 +26,6 @@ export default function ExperienceNavigation() {
     if (stageLevel < 4) {
       setIsClosed(false)
       setStageLevel((prev) => {
-        console.log(prev)
         return (prev += 1)
       })
     }

@@ -47,7 +47,7 @@ export default function RoundedSquareGrid({ position, rotation }) {
   return (
     <group position={position} rotation={rotation}>
       {/* ---Workspace--- */}
-      <RoundedSquare {...workspaceSquareParams} position={[0, -1.35, 0]} rotation={[0, 0, 0]} />
+      <RoundedSquare {...workspaceSquareParams} position={[0, -1.35, 0.05]} rotation={[0, 0, 0]} />
       {/* import statements */}
       <RoundedSquare {...textSquareParams} width={0.9} position={[0.25, 0.65, 0.05]} color={'#6d496c'} />
       <RoundedSquare {...textSquareParams} width={1} position={[0.25, 0.65 - 0.125, 0.05]} color={'#6d496c'} />

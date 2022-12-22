@@ -19,15 +19,6 @@ export const StageContext = createContext({
 })
 
 export default function Experience(props) {
-  const [laptopClosed, setLaptopClosed] = useState(true)
-  const [experienceStage, setExperienceStage] = useState(true)
-
-  const handleLaptopClick = (e) => {
-    // e.stopPropagation()
-    setLaptopClosed((prev) => !prev)
-    console.log('experience base state change')
-  }
-
   return (
     <>
       <group position={[-0.5, 0, 0]}>

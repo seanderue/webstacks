@@ -46,7 +46,7 @@ export default function Model(props) {
     setIsClosed((prev) => !prev)
     setLastLevel(isClosed ? 0 : stageLevel)
     setStageLevel(isClosed ? lastLevel : 0)
-    console.log(!isClosed)
+    // console.log(!isClosed)
   }
 
   return (

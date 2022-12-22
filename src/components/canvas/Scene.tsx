@@ -32,8 +32,8 @@ export default function Scene({ children, ...props }) {
       gl={{ preserveDrawingBuffer: true }}
       onCreated={({ gl, scene }) => {
         scene.background = new THREE.Color('#10172e')
-        console.log(scene)
-        console.log(gl)
+        // console.log(scene)
+        // console.log(gl)
       }}
       {...props}>
       <directionalLight shadow-bias={0} shadow-normalBias={0.1} castShadow intensity={0.75} />

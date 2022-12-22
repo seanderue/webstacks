@@ -1413,6 +1413,10 @@ section.table-of-content {
 
     .column:first-child {
       margin-right: 55px;
+
+      @media (max-width: 600px) {
+        margin-right: 0;
+      }
       //   padding-right: 80px;
       //   padding-left: 60px;
 

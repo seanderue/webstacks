@@ -28,7 +28,7 @@ export default function Page(props) {
   console.log(
     'Thanks for looking at my work with such vigorous curiosity. As a reward, if you click the target on the optimize page, the car will go faster 😉',
   )
-  console.log(width)
+  // console.log(width)
 
   const toggleIsInteracting = () => {
     setIsInteracting((prev) => !prev)
@@ -61,8 +61,8 @@ export default function Page(props) {
   useEffect(() => {
     if (width < 800) {
       // device is a mobile device
-      console.log('mobile')
-      console.log(width)
+      // console.log('mobile')
+      // console.log(width)
       setIsMobile(true)
       setIsInteracting(true)
       setIsActive(true)
