@@ -8,6 +8,7 @@ import { Effects, Environment, PresentationControls } from '@react-three/drei'
 import ExperienceBase from '../canvas/ExperienceBase'
 import Head from 'next/head'
 import parseDescriptionWithDelays from '@/helpers/parseDescriptionWithDelays'
+import Chapter from './Chapter'
 
 export default function Page(props) {
   // Triggers when user touches canvas (used for css animations)
@@ -71,7 +72,8 @@ export default function Page(props) {
   console.log(props.data.homepage)
   const { homepage } = props.data
   const { site } = props.data
-  const { chapters } = props.data
+  const chapters = props.data.allChapters
+  console.log(chapters)
 
   const description = homepage.heroContent.value.document.children
   console.log('description:')
@@ -160,69 +162,14 @@ export default function Page(props) {
           </span>
         </button>
         <div className='chapters'>
-          <div className='container'>
-            <div className={stageLevel === 1 && isActive ? 'chapter chapter-01 is-active' : 'chapter chapter-01'}>
-              {/* <div className={`chapter chapter-01 is-active`}> */}
-              <div className='grid'>
-                <div className='shadow' />
-              </div>
-              {/* <div className='illustration'>
-                <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} />
-              </div> */}
-              <small className='number element ch-delay-0'>01</small>
-              <h3 className='section-title element ch-delay-1'>Planning</h3>
-              <div className='description element ch-delay-2'>
-                <p>
-                  {
-                    "Something something T-shaped skillset that means I won't need a translator for marketing-speak. I know expertise shines in the details. I know what is important to the end user."
-                  }
-                </p>
-              </div>
-            </div>
-            <div className={stageLevel === 2 && isActive ? 'chapter chapter-02 is-active' : 'chapter chapter-02'}>
-              {/* <div className={`chapter chapter-01 is-active`}> */}
-              <div className='grid'>
-                <div className='shadow' />
-              </div>
-              <div className='illustration'>
-                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
-              </div>
-              <small className='number element ch-delay-0'>02</small>
-              <h3 className='section-title element ch-delay-1'>Designing</h3>
-              <div className='description element ch-delay-2'>
-                <p>I can design</p>
-              </div>
-            </div>
-            <div className={stageLevel === 3 && isActive ? 'chapter chapter-03 is-active' : 'chapter chapter-03'}>
-              {/* <div className={`chapter chapter-01 is-active`}> */}
-              <div className='grid'>
-                <div className='shadow' />
-              </div>
-              <div className='illustration'>
-                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
-              </div>
-              <small className='number element ch-delay-0'>03</small>
-              <h3 className='section-title element ch-delay-1'>Building</h3>
-              <div className='description element ch-delay-2'>
-                <p>Build build build build</p>
-              </div>
-            </div>
-            <div className={stageLevel === 4 && isActive ? 'chapter chapter-04 is-active' : 'chapter chapter-04'}>
-              {/* <div className={`chapter chapter-01 is-active`}> */}
-              <div className='grid'>
-                <div className='shadow' />
-              </div>
-              <div className='illustration'>
-                {/* <Image src={'/img/react.webp'} width='20' height='20' alt={'React logo'} /> */}
-              </div>
-              <small className='number element ch-delay-0'>04</small>
-              <h3 className='section-title element ch-delay-1'>Optimizing</h3>
-              <div className='description element ch-delay-2'>
-                <p>Optimize Optimize Optimize</p>
-              </div>
-            </div>
-          </div>
           <div className='overlay is-top' />
+          <div className='container'>
+            <Chapter chapterIndex={0} stageLevel={stageLevel} isActive={isActive} data={chapters[0]} />
+            <Chapter chapterIndex={1} stageLevel={stageLevel} isActive={isActive} data={chapters[1]} />
+            <Chapter chapterIndex={2} stageLevel={stageLevel} isActive={isActive} data={chapters[2]} />
+            <Chapter chapterIndex={3} stageLevel={stageLevel} isActive={isActive} data={chapters[3]} />
+            <Chapter chapterIndex={4} stageLevel={stageLevel} isActive={isActive} data={chapters[4]} />
+          </div>
           <div className='overlay is-bottom' />
         </div>
       </section>

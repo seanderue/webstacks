@@ -14,6 +14,7 @@
 // Colors
 $webstacksBlue: #2885f6;
 $white: #ffffff;
+$offwhite-text: #d2e6fd;
 $landing-content-lines: 10;
 $dark-bg: #000312;
 $dark-bg-alpha-1: rgb(0, 3, 18, 0.5);
@@ -104,7 +105,7 @@ section.landing {
   }
 
   .content {
-    color: #d2e6fd;
+    color: $offwhite-text;
     display: flex;
     position: relative;
     width: 960px;
@@ -865,10 +866,35 @@ section.landing {
           }
         }
       }
+      .section-title {
+        color: $big-text-color-blue;
+      }
+
       .element {
         opacity: 0;
         transform: translateX(30px);
         transition-duration: 0.3s;
+
+        p {
+          color: $offwhite-text;
+        }
+
+        ::marker {
+          color: $offwhite-text;
+        }
+
+        a {
+          color: $webstacksBlue;
+          text-decoration: underline;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: $big-text-color-blue;
+        }
       }
       .number {
         color: $webstacksBlue;
