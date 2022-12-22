@@ -77,6 +77,7 @@ export default function Page(props) {
   // console.log(props.data.homepage)
   const { homepage } = props.data
   const { site } = props.data
+  console.log(site.favicon)
   const chapters = props.data.allChapters
   const chapter0 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 0)[0]
   const chapter1 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 1)[0]

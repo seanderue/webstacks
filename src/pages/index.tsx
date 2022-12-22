@@ -2,9 +2,7 @@
 // WARNING ! errors might get obfuscated by using dynamic import.
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
-import dynamic from 'next/dynamic'
-import { Perf } from 'r3f-perf'
-import { useState } from 'react'
+
 import { Environment, PresentationControls } from '@react-three/drei'
 import Effects from '@/components/canvas/Effects'
 import ExperienceBase from '@/components/canvas/ExperienceBase'
@@ -13,11 +11,8 @@ import { StageLevelProvider, useStageLevelContext } from '@/components/canvas/co
 import { LaptopProvider } from '@/components/canvas/context/LaptopContext'
 import IndexDom from '@/components/dom/IndexDom'
 import { request } from '@/lib/datocms'
-// import CryptoCoin from '@/components/canvas/CryptoCoin'
 
-// const Blob = dynamic(() => import('@/components/canvas/Blob'), { ssr: false })
-
-const HOMEPAGE_QUERY = `query MyQuery {
+export const QUERY = `query MyQuery {
   site: _site {
     favicon: faviconMetaTags {
       attributes
@@ -99,7 +94,7 @@ const HOMEPAGE_QUERY = `query MyQuery {
 
 export async function getStaticProps() {
   const data = await request({
-    query: HOMEPAGE_QUERY,
+    query: QUERY,
     variables: null,
     includeDrafts: false,
     excludeInvalid: true,
