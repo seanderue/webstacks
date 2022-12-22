@@ -458,6 +458,12 @@ section.landing {
     will-change: transform;
     transition-property: transform;
 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
     // Responsive Styling
 
     @media (max-width: 1600px) {
