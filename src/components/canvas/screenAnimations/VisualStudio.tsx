@@ -1,8 +1,5 @@
-import { useControls } from 'leva'
-import { Shape } from 'three'
 import { useLaptopContext } from '../context/LaptopContext'
 import { useStageLevelContext } from '../context/StageLevelContext'
-import EmptyLaptopScreen from './EmptyLaptopScreen'
 import RoundedSquare from './RoundedSquare'
 
 export default function RoundedSquareGrid({ position, rotation }) {
@@ -41,8 +38,6 @@ export default function RoundedSquareGrid({ position, rotation }) {
     scale: conditionalScale,
     color: '#2a2928',
   }
-
-  const gap = 0.1
 
   return (
     <group position={position} rotation={rotation}>

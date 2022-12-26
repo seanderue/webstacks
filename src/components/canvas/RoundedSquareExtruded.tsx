@@ -1,5 +1,4 @@
-import { useControls } from 'leva'
-import { ExtrudeGeometry, Shape } from 'three'
+import { Shape } from 'three'
 
 export default function RoundedSquare({
   width,
@@ -11,13 +10,6 @@ export default function RoundedSquare({
   color,
   extrudeSettings,
 }): JSX.Element {
-  // {"width":0.7}
-  // {"height":0.7}
-  // radius:0.3
-  // scale: 1
-  // {"position":[-2.03,0.03,-2.23]}
-  // {"rotation":[-1.57,0,0]}
-
   // Create a new Shape
   const shape = new Shape()
 

@@ -1,7 +1,4 @@
 import { Torus } from '@react-three/drei'
-import { useControls } from 'leva'
-import { useMemo } from 'react'
-import { Shape } from 'three'
 
 export default function VennDiagram({
   radius,

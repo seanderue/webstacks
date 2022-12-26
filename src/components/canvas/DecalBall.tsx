@@ -28,7 +28,6 @@ export default function Component(props: {
           flatShading
         />
         <Decal
-          // debug
           position={props.decalPosition}
           rotation={props.decalRotation}
           scale={props.decalScale}

@@ -2,7 +2,6 @@ import { StructuredText, Image } from 'react-datocms'
 
 export default function Intro(props: { data: any }) {
   const content = props.data
-  // console.log(content)
 
   return (
     <div className='intro'>

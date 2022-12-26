@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { createGenericContext } from './createGenericContext'
 import { UseLaptopProps, useLaptop } from './useLaptop'
 

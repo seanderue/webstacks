@@ -1,4 +1,3 @@
-// import { useControls } from 'leva'
 import { Euler } from 'three'
 import DecalBall from './DecalBall'
 import { animated, useSpring } from '@react-spring/three'
@@ -6,86 +5,6 @@ import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
 
 export default function Component(props) {
-  //   const graphQlConfig = useControls('graphQl', {
-  //     position: { value: [-4.25, 0.55, -2], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.4, 1], step: 0.01 },
-  //     color: { value: '#92c1fa' },
-  //     decalPosition: { value: [0.09, -0.04, 0.04], step: 0.01 },
-  //     decalRotation: { value: -1.67, step: 0.01 },
-  //     decalScale: { value: 0.6 },
-  //   })
-
-  // const typescriptConfig = useControls('TS', {
-  //   position: { value: [-2.29, 0.6, 29], step: 0.01 },
-  //   rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //   geoArgs: { value: [0.5, 1], step: 0.01 },
-  //   color: { value: '#92c1fa' },
-  //   decalPosition: { value: [-0.34, 0.1, 0.04], step: 0.01 },
-  //   decalRotation: { value: 1.67, step: 0.01 },
-  //   decalScale: { value: 0.75 },
-  // })
-
-  //   const awsConfig = useControls('aws', {
-  //     position: { value: [0.5, 3.5, -3], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.5, 1], step: 0.01 },
-  //     color: { value: '#e1d0b3' },
-  //     decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //     decalRotation: { value: -2.8, step: 0.01 },
-  //     decalScale: { value: 0.75 },
-  //   })
-
-  //   const netlifyConfig = useControls('netlify', {
-  //     position: { value: [1.5, 2.75, -3.5], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.5, 1], step: 0.01 },
-  //     color: { value: '#7d8285' },
-  //     decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //     decalRotation: { value: -2.8, step: 0.01 },
-  //     decalScale: { value: 0.75 },
-  //   })
-
-  //   const vercelConfig = useControls('vercel', {
-  //     position: { value: [-0.75, 3.5, -3.5], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.5, 1], step: 0.01 },
-  //     color: { value: '#7d8285' },
-  //     decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //     decalRotation: { value: -2.8, step: 0.01 },
-  //     decalScale: { value: 0.75 },
-  //   })
-
-  //   const reactConfig = useControls('react', {
-  //     position: { value: [1.25, 1.25, 0.5], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.55, 1], step: 0.01 },
-  //     color: { value: '#92c1fa' },
-  //     decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //     decalRotation: { value: -2.8, step: 0.01 },
-  //     decalScale: { value: 0.75 },
-  //   })
-
-  //   const reactNativeConfig = useControls('reactNative', {
-  //     position: { value: [2, 0.75, 0.65], step: 0.01 },
-  //     rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //     geoArgs: { value: [0.35, 1], step: 0.01 },
-  //     color: { value: '#92c1fa' },
-  //     decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //     decalRotation: { value: -2.8, step: 0.01 },
-  //     decalScale: { value: 0.75 },
-  //   })
-
-  // const nextConfig = useControls('next', {
-  //   position: { value: [2.25, 1.25, 0], step: 0.01 },
-  //   rotation: { value: [-0.5, -0.94, 0], step: 0.01 },
-  //   geoArgs: { value: [0.35, 1], step: 0.01 },
-  //   color: { value: '#92c1fa' },
-  //   decalPosition: { value: [0.09, 0.11, 0.39], step: 0.01 },
-  //   decalRotation: { value: -2.8, step: 0.01 },
-  //   decalScale: { value: 0.75 },
-  // })
-
   const rotations = {
     graphQL: new Euler(-0.5, -0.94, 0),
     typescript: new Euler(-5.3, -0.16, -8.06),
@@ -133,16 +52,9 @@ export default function Component(props) {
     nextPosition: displayBalls ? [2.25, 1.25, 0] : [0, 0, 0],
     decalScale: displayBalls ? 0.5 : 0,
     decalScaleLarge: displayBalls ? 0.75 : 0,
-    // scale: displayBalls ? 1 : 0,
-    // largestScale: displayBalls ? [0.55, 1] : [0],
-    // largeScale: displayBalls ? [0.5, 1] : [0],
-    // midScale: displayBalls ? [0.4, 1] : [0],
-    // smallScale: displayBalls ? [0.35, 1] : [0],
   })
 
   const scale = 1
-  const decalScale = 0.5
-  const decalScaleLarge = 0.75
 
   return (
     <>
@@ -151,10 +63,8 @@ export default function Component(props) {
         // @ts-ignore
         scale={scale}
         imgPath={'./img/graphql.webp'}
-        // {...graphQlConfig}
         position={spring.graphQLPosition}
         rotation={rotations.graphQL}
-        // rotation={[-0.5, -0.94, 0]}
         geoArgs={[0.5, 1]}
         color={'#92c1fa'}
         decalPosition={[0.09, -0.04, 0.04]}
@@ -165,14 +75,10 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/typescript.webp'}
-        // {...typescriptConfig}
         position={spring.typesciptPosition}
         rotation={rotations.typescript}
         geoArgs={[0.4, 1]}
         color={'#92c1fa'}
-        // decalPosition={typescriptConfig.decalPosition}
-        // decalScale={typescriptConfig.decalScale}
-        // decalRotation={typescriptConfig.decalRotation}
         decalPosition={[-0.34, 0.1, 0.04]}
         decalScale={spring.decalScale}
         decalRotation={Math.PI / 2}
@@ -181,8 +87,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/aws.webp'}
-        // {...awsConfig}
-        // rotation={awsConfig.rotation}
         position={spring.awsPosition}
         rotation={rotations.aws}
         geoArgs={[0.5, 1]}
@@ -195,8 +99,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/netlify.webp'}
-        // {...netlifyConfig}
-        // rotation={netlifyConfig.rotation}
         position={spring.netlifyPosition}
         rotation={rotations.netlify}
         geoArgs={[0.4, 1]}
@@ -209,8 +111,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/vercel.webp'}
-        // {...vercelConfig}
-        // rotation={vercelConfig.rotation}
         position={spring.vercelPosition}
         rotation={rotations.vercel}
         geoArgs={[0.5, 1]}
@@ -223,8 +123,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/react.png'}
-        // {...reactConfig}
-        // rotation={reactConfig.rotation}
         position={spring.reactPosition}
         rotation={rotations.react}
         geoArgs={[0.55, 1]}
@@ -237,8 +135,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/react-native.webp'}
-        // {...reactNativeConfig}
-        // rotation={reactNativeConfig.rotation}
         position={spring.reactNativePosition}
         rotation={rotations.reactNative}
         geoArgs={[0.35, 1]}
@@ -251,8 +147,6 @@ export default function Component(props) {
       <AnimatedDecalBall
         scale={scale}
         imgPath={'./img/next.webp'}
-        // {...nextConfig}
-        // rotation={nextConfig.rotation}
         position={spring.nextPosition}
         rotation={rotations.next}
         geoArgs={[0.35, 1]}

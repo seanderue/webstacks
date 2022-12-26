@@ -1,4 +1,4 @@
-import { Image, renderMetaTags, StructuredText } from 'react-datocms'
+import { Image, StructuredText } from 'react-datocms'
 
 export default function HeroContent({ homepage, onClick }) {
   return (
@@ -19,9 +19,6 @@ export default function HeroContent({ homepage, onClick }) {
       <div className='description element delay-2'>
         <StructuredText data={homepage.heroContent2.value} />
       </div>
-      {/* <button onClick={onClick} className='button element delay-3'>
-        Begin Experience
-      </button> */}
       <div className='description element delay-4'>
         <StructuredText data={homepage.heroContent3.value} />
       </div>

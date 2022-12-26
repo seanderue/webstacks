@@ -1,6 +1,5 @@
-import { Text, useCursor } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
-// import { useControls } from 'leva'
 import { useState } from 'react'
 import DesignIcon from './DesignIcon'
 import PlanIcon from './PlanIcon'
@@ -16,11 +15,6 @@ const BUTTON_WIDTH = 1.5
 const BUTTON_MARGIN = 0.1
 
 export default function ProcessButtons(props: GroupProps) {
-  // const config = useControls({
-  //   Bposition: { value: [-2.3, 2.6, -1.3], step: 0.1 },
-  //   Brotation: { value: [-0.23, 0.23, 0.14], step: 0.01745329 },
-  // })
-
   // Import Contexts
   const [stageLevel, setStageLevel] = useStageLevelContext()
   const [laptopClosed, setLaptopClosed] = useLaptopContext()
@@ -69,25 +63,15 @@ export default function ProcessButtons(props: GroupProps) {
         rotation={spring.groupRotation}
         onPointerOver={() => {
           setSomethingHovered(true)
-          // console.log(somethingHovered)
         }}
         onPointerOut={() => {
           setSomethingHovered(false)
-          // console.log(somethingHovered)
         }}
-        {...props}
-        // position={[-2.3, 2.6, -1.3]}
-        // rotation={[-0.23, 0.23, 0.14]}
-      >
+        {...props}>
         {/* Box to trigger mouse-events */}
         <mesh position={[2.25, 1, 0]}>
           <boxGeometry args={[6.5, 1.3, 2]} />
-          <animated.meshStandardMaterial
-            // color='green'
-            opacity={0}
-            transparent
-            // wireframe
-          />
+          <animated.meshStandardMaterial opacity={0} transparent />
         </mesh>
         <Button
           somethingHovered={somethingHovered}
@@ -98,9 +82,7 @@ export default function ProcessButtons(props: GroupProps) {
           somethingHovered={somethingHovered}
           onClick={handleDesignButtonClick}
           type={'Design'}
-          position-x={BUTTON_WIDTH * 1 + BUTTON_MARGIN * 1}>
-          {/* <DesignIcon scale={0.01} position={[0, 1, 0.3]} rotation={[Math.PI / 2, 0, 0.1]} /> */}
-        </Button>
+          position-x={BUTTON_WIDTH * 1 + BUTTON_MARGIN * 1}></Button>
         <Button
           somethingHovered={somethingHovered}
           onClick={handleBuildButtonClick}
@@ -121,11 +103,6 @@ export default function ProcessButtons(props: GroupProps) {
 function Button(props: any) {
   const [hovered, setHovered] = useState(false)
   const [stageLevel, setStageLevel] = useStageLevelContext()
-  // useCursor(hovered, 'pointer', 'auto')
-  // const spring = {
-  //   scale: hovered ? 0.13 : 0.09,
-  //   constrictedScale: hovered ? 0.11 : 0.09,
-  // }
 
   const isActive = () => {
     if (props.type === 'Plan' && stageLevel === 1) {
@@ -175,11 +152,6 @@ function Button(props: any) {
     textSize: getLabelActivity(),
     config: { mass: 1.5, tension: 300 },
   })
-  // const config = useControls('icon', {
-  //   scale: { value: 0.11, step: 0.001 },
-  //   position: { value: [-0.2, 1.1, 0.1], step: 0.1 },
-  //   rotation: { value: [1.28, 0.21, -0.06], step: 0.01745329 },
-  // })
 
   const AnimatedPlanIcon = animated(PlanIcon)
   const AnimatedDesignIcon = animated(DesignIcon)
@@ -235,12 +207,7 @@ function Button(props: any) {
           setHovered(false)
         }}>
         <boxGeometry args={[1.6, 1.25, 1.5]} />
-        <meshStandardMaterial
-          // color='pink'
-          opacity={0}
-          transparent
-          // wireframe
-        />
+        <meshStandardMaterial opacity={0} transparent />
       </mesh>
     </group>
   )

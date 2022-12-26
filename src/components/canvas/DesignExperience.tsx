@@ -1,13 +1,7 @@
 import { animated, config, useSpring } from '@react-spring/three'
-import { Float } from '@react-three/drei'
-import { useControls } from 'leva'
 import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
 import PaintBrush from './PaintBrush'
-import Backlog from './Backlog'
-import VennDiagram from './VennDiagram'
-import TechConstellation from './TechConstellation'
-import { EulerOrder } from 'three'
 
 export default function Experience(props) {
   const [isClosed, setIsClosed] = useLaptopContext()
@@ -37,7 +31,6 @@ export default function Experience(props) {
       loop: {
         reverse: true,
       },
-      // immediate: true,
     }),
     [],
   )

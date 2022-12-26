@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react'
-// import Image from 'next/image'
-import { Image, renderMetaTags, StructuredText } from 'react-datocms'
-import { LaptopProvider, useLaptopContext } from '../canvas/context/LaptopContext'
-import { StageLevelProvider, useStageLevelContext } from '../canvas/context/StageLevelContext'
-import { Perf } from 'r3f-perf'
+import { renderMetaTags } from 'react-datocms'
+import { useStageLevelContext } from '../canvas/context/StageLevelContext'
 import { Effects, Environment, PresentationControls } from '@react-three/drei'
 import ExperienceBase from '../canvas/ExperienceBase'
 import Head from 'next/head'
-import parseDescriptionWithDelays from '@/helpers/parseDescriptionWithDelays'
 import Chapter from './Chapter'
 import ExperienceNavigation from './ExperienceNavigation'
 import DynamicExperienceMasks from './DynamicExperienceMasks'
 import HeroContent from './HeroContent'
-import MobileChapter from './Intro'
 import Intro from './Intro'
 
 export default function Page(props) {
@@ -28,7 +23,6 @@ export default function Page(props) {
   console.log(
     'Thanks for looking at my work with such vigorous curiosity. As a reward, if you click the target on the optimize page, the car will go faster 😉',
   )
-  // console.log(width)
 
   const toggleIsInteracting = () => {
     setIsInteracting((prev) => !prev)
@@ -40,7 +34,7 @@ export default function Page(props) {
     }
   }
 
-  // making sure the function is being called in client side only (not SSR)
+  // making sure this function is being called in client side only (not SSR)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setWidth(window.innerWidth)
@@ -61,8 +55,6 @@ export default function Page(props) {
   useEffect(() => {
     if (width < 800) {
       // device is a mobile device
-      // console.log('mobile')
-      // console.log(width)
       setIsMobile(true)
       setIsInteracting(true)
       setIsActive(true)
@@ -74,10 +66,8 @@ export default function Page(props) {
   const [stageLevel, setStageLevel] = useStageLevelContext()
 
   // Parsing GraphQL Response into variables
-  // console.log(props.data.homepage)
   const { homepage } = props.data
   const { site } = props.data
-  console.log(site.favicon)
   const chapters = props.data.allChapters
   const chapter0 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 0)[0]
   const chapter1 = chapters.filter((element: { stageLevel: number }) => element.stageLevel === 1)[0]
@@ -123,19 +113,16 @@ export default function Page(props) {
       </section>
       <section className='table-of-content'>
         <div className='columns'>
-          {/* Put all chapters into one column if width gets below 1300 */}
+          {/* Put all chapters into one column if width gets below 1300, otherwise two columns */}
           {width > 1300 ? (
             <>
               <div className='column'>
                 <Intro data={chapter0} />
-
                 <Chapter chapterIndex={2} stageLevel={stageLevel} isActive={isActive} data={chapter2} />
-
                 <Chapter chapterIndex={4} stageLevel={stageLevel} isActive={isActive} data={chapter4} />
               </div>
               <div className='column'>
                 <Chapter chapterIndex={1} stageLevel={stageLevel} isActive={isActive} data={chapter1} />
-
                 <Chapter chapterIndex={3} stageLevel={stageLevel} isActive={isActive} data={chapter3} />
               </div>
             </>
@@ -154,7 +141,8 @@ export default function Page(props) {
   )
 }
 
-Page.canvas = (props) => (
+// The page's canvas component that will be rendered according to the Layout component
+Page.canvas = () => (
   <>
     <group position={[0, -3, 0]}>
       <Effects />

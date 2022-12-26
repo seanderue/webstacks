@@ -1,25 +1,9 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
-// import { MeshProps } from '@react-three/fiber'
 
 export default function Component(props) {
-  // const config = useControls({
-  //   blur: { value: [300, 100] },
-  //   resolution: { value: 2048 },
-  //   mixBlur: { value: 1 },
-  //   mixStrength: { value: 3 },
-  //   roughness: { value: 1 },
-  //   depthScale: { value: 1.2 },
-  //   minDepthThreshold: { value: 0.09 },
-  //   maxDepthThreshold: { value: 1.4 },
-  //   color: { value: '#181c2a' },
-  //   metalness: { value: 1 },
-  //   mirror: { value: 0 },
-  // })
-
   return (
     <mesh scale={50} rotation={[-Math.PI / 2, 0, 0]} {...props}>
       <planeGeometry />
-      {/* <MeshReflectorMaterial {...config} /> */}
       <MeshReflectorMaterial
         blur={[300, 100]}
         resolution={2048}

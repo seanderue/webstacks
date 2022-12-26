@@ -1,11 +1,9 @@
 import { animated, useSpring } from '@react-spring/three'
 import { Float } from '@react-three/drei'
-import { useControls } from 'leva'
 import { useLaptopContext } from './context/LaptopContext'
 import { useStageLevelContext } from './context/StageLevelContext'
 import Backlog from './Backlog'
 import VennDiagram from './VennDiagram'
-import TechConstellation from './TechConstellation'
 
 export default function Experience(props) {
   const [isClosed, setIsClosed] = useLaptopContext()
@@ -23,8 +21,6 @@ export default function Experience(props) {
         <VennDiagram
           position={[1.12, 2.57, -1.12]}
           rotation={[-0.13, -0.45, -0.12]}
-          // position={config.position}
-          // rotation={config.rotation}
           radius={0.5}
           tubeRadius={0.1}
           radialSegments={9.7}
@@ -32,7 +28,7 @@ export default function Experience(props) {
           scale={1}
         />
       </Float>
-      <Backlog position={[0, 0, 0]} rotation={[0, 0, 0]} />
+      <Backlog />
     </animated.group>
   )
 }

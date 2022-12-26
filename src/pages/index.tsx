@@ -1,12 +1,7 @@
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
-// WARNING ! errors might get obfuscated by using dynamic import.
-// If something goes wrong go back to a static import to show the error.
-// https://github.com/pmndrs/react-three-next/issues/49
 
 import { Environment, PresentationControls } from '@react-three/drei'
-import Effects from '@/components/canvas/Effects'
 import ExperienceBase from '@/components/canvas/ExperienceBase'
-import Image from 'next/image'
 import { StageLevelProvider, useStageLevelContext } from '@/components/canvas/context/StageLevelContext'
 import { LaptopProvider } from '@/components/canvas/context/LaptopContext'
 import IndexDom from '@/components/dom/IndexDom'
@@ -119,18 +114,9 @@ export default function Home(props) {
 Home.canvas = (props) => (
   <>
     <group position={[0, -3, 0]}>
-      {/* <Perf position='top-left' /> */}
-
-      {/* Staging */}
-      {/* <directionalLight shadow-bias={0.1} castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
-        <orthographicCamera attach='shadow-camera' left={-20} right={20} top={20} bottom={-20} />
-      </directionalLight> */}
-
-      <Effects />
       <Environment preset='city' />
 
       {/* Meshes */}
-      {/* <Blob route='/' position-y={3.75} /> */}
       <PresentationControls
         global
         cursor={true}
@@ -140,11 +126,6 @@ Home.canvas = (props) => (
         config={{ mass: 2, tension: 400 }}>
         <ExperienceBase />
       </PresentationControls>
-
-      {/* 3D Text */}
-      {/* <Text rotation={[0, 0, 0]} position={[-2.5, 0, 0]}>
-        [ ]
-      </Text> */}
     </group>
   </>
 )

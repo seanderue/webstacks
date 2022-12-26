@@ -1,15 +1,8 @@
-import { useControls } from 'leva'
-import { Shape } from 'three'
 import { useLaptopContext } from '../context/LaptopContext'
 import { useStageLevelContext } from '../context/StageLevelContext'
 import RoundedSquare from './RoundedSquare'
 
 export default function RoundedSquareGrid({ position, rotation }) {
-  //   const { position, rotation } = useControls({
-  //     position: { value: [-2.03, 0.04, -2.23], step: 0.01 },
-  //     rotation: { value: [-Math.PI / 2, 0, 0], step: 0.01 },
-  //   })
-
   const [isClosed, setIsclosed] = useLaptopContext()
   const [stageLevel, setStageLevel] = useStageLevelContext()
 
@@ -70,8 +63,6 @@ export default function RoundedSquareGrid({ position, rotation }) {
 
   return (
     <group position={position} rotation={rotation}>
-      {/* Backdrop */}
-      {/* <RoundedSquare {...squareParams} position={[-0.45, -2.025, 0]} rotation={[0, 0, 0]} /> */}
       {/* Col 1 */}
       {/* DarkBlue */}
       <RoundedSquare

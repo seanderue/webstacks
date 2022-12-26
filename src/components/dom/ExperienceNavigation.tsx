@@ -1,6 +1,8 @@
 import { useLaptopContext } from '../canvas/context/LaptopContext'
 import { useStageLevelContext } from '../canvas/context/StageLevelContext'
 
+// This component handles the stage-level adjustments via two buttons (pev & next) and a label.
+
 export default function ExperienceNavigation() {
   //Pull experience context
   const [stageLevel, setStageLevel] = useStageLevelContext()

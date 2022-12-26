@@ -9,7 +9,6 @@ export default function Chapter(props: { chapterIndex: number; stageLevel: any; 
       : `chapter chapter-0${props.chapterIndex}`
 
   const content = props.data
-  //   console.log(content)
 
   return (
     <div className={className}>
